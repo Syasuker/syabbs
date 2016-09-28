@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css" >
+  <link rel="Stylesheet" type="text/css" href="css/loginDialog.css" />
+  <style>
+  </style>
+  <script>
+  </script>
+  <title>Document</title>
+ </head>
+ <body>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/cookie_util.js"></script>
+	<script type="text/javascript" src="js/user.js"></script>
+</head>
+<body>
+	<!--登陆窗口-->
+    <a href="javascript:window.location.href='register.html';" class="rt" id="register">注册</a><a href="#" id="example">登录</a>
+    <div id="LoginBox">
+        <div class="row1">
+            登录<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+        </div>
+        <div class="row">
+            用户名: <span class="inputBox">
+                <input type="text" id="txtName" placeholder="账号" />
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn">*</a>
+        </div>
+        <div class="row">
+            密&nbsp;码: <span class="inputBox">
+                <input type="text" id="txtPwd" placeholder="密码" />
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+        </div>
+        <div class="row">
+            <a href="#" id="loginbtn">登陆</a><a href="#" class="wang">忘记密码？<a>
+        </div>
+    </div>
+
+	<script type="text/javascript">
+	$(function ($) {
+		//弹出登录
+		$("#example").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.6'
+			}, 1000);
+		}).on('click', function () {
+			$("body").append("<div id='mask'></div>");
+			$("#mask").addClass("mask").fadeIn("slow");
+			$("#LoginBox").fadeIn("slow");
+		});
+		//
+		//按钮的透明度
+		$("#loginbtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.8'
+			}, 1000);
+		});
+		//文本框不允许为空---按钮触发
+		$("#loginbtn").on('click', function () {
+			var txtName = $("#txtName").val();
+			var txtPwd = $("#txtPwd").val();
+			if (txtName == "" || txtName == undefined || txtName == null) {
+				if (txtPwd == "" || txtPwd == undefined || txtPwd == null) {
+					$(".warning").css({ display: 'block' });
+				}
+				else {
+					$("#warn").css({ display: 'block' });
+					$("#warn2").css({ display: 'none' });
+				}
+			}
+			else {
+				if (txtPwd == "" || txtPwd == undefined || txtPwd == null) {
+					$("#warn").css({ display: 'none' });
+					$(".warn2").css({ display: 'block' });
+				}
+				else {
+					$(".warning").css({ display: 'none' });
+				}
+			}
+		});
+		//文本框不允许为空---单个文本触发
+		$("#txtName").on('blur', function () {
+			var txtName = $("#txtName").val();
+			if (txtName == "" || txtName == undefined || txtName == null) {
+				$("#warn").css({ display: 'block' });
+			}
+			else {
+				$("#warn").css({ display: 'none' });
+			}
+		});
+		$("#txtName").on('focus', function () {
+			$("#warn").css({ display: 'none' });
+		});
+		//
+		$("#txtPwd").on('blur', function () {
+			var txtName = $("#txtPwd").val();
+			if (txtName == "" || txtName == undefined || txtName == null) {
+				$("#warn2").css({ display: 'block' });
+			}
+			else {
+				$("#warn2").css({ display: 'none' });
+			}
+		});
+		$("#txtPwd").on('focus', function () {
+			$("#warn2").css({ display: 'none' });
+		});
+		//关闭
+		$(".close_btn").hover(function () { $(this).css({ color: 'black' }) }, function () { $(this).css({ color: '#999' }) }).on('click', function () {
+			$("#LoginBox").fadeOut("fast");
+			$("#mask").css({ display: 'none' });
+		});
+	});
+	</script>	
+
+	<!--header-->
+	<div id="header"class="container clearfloat">
+		<!--logo-->
+		<h1 id="logo" class="lf"><a href="#"></a></h1>
+		<!--nav-->
+		<div id="nav">
+			<ul class="rt">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">个人中心</a></li>
+				<li><a href="#">关于我们</a></li>
+				<li><a href="#">论坛中心</a></li>
+				<li><a href="#">公司产品</a></li>
+				<li><a href="#">联系我们</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--banner-->
+	<div id="banner">
+		<img src="images/banner.jpg"/>
+		<img src="images/banner_2.jpg"/>
+		<img src="images/banner_3.jpg"/>
+		<img src="images/banner_5.jpg"/>
+	<!--轮播图-->
+<script type="text/javascript">
+	 window.onload = function(){
+        var images = document.getElementById("banner").getElementsByTagName('img');
+        var pos = 0;
+        var len = images.length;
+        setInterval(function(){
+            images[pos].style.display = 'none';
+            pos = ++pos == len ? 0 : pos;
+            images[pos].style.display = 'inline';
+         
+        },2000);
+    };
+  </script>
+		<!--这是hello-->
+		<div class="hello">
+		<p class="banner_tit">
+			<a href="">看新闻</a><a href="">网络游戏</a><a href="">热门单机</a><a href="">虚拟VR体验</a><a href="">我是会员</a>
+		</p>
+		</div>
+		<div class="vip_box container">
+			<p class="vip_hy"></p>
+			<div class="vip">
+				<a href="#">开学送大礼</a>
+				<a href="#">冰火传说199</a>
+				<a href="#">注册即送30元</a>
+				<a href="#">年度工会开战</a>
+				<a href="#">10元到永久</a>
+				<a href="#">点开有惊喜</a>
+			</div>
+		</div>
+	</div>
+	<!--banner_con-->
+	<div id="banner_con" class="container clearfloat">
+		<ul class="banner_u lf">
+			<li class="clearfloat">
+				<a href="#" class="all">
+					<div class="banner_text">
+						<p>《赤壁-三分天下》</p>
+						<h4>完美第一国战网游,9月21日上线！</h4>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="all">
+					<div class="banner_text">
+						<p>《赤壁-三分天下》</p>
+						<h4>完美第一国战网游,9月21日上线！</h4>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="all">
+					<div class="banner_text">
+						<p>《赤壁-三分天下》</p>
+						<h4>完美第一国战网游,9月21日上线！</h4>
+					</div>
+				</a>
+			</li>
+			<li class="banner_rt">
+				<a href="#" class="all">
+					<div class="banner_text">
+						<p>《赤壁-三分天下》</p>
+						<h4>完美第一国战网游,9月21日上线！</h4>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div id="main_game" class="container">
+		<div class="game_title">
+			<p>在线游戏</p>
+		</div>
+		<div class="main_con clearfloat">
+			<p class="main_hot"><a href="#" class="all"></a></p>
+			<ul id="phone_game">
+				<li class="title">
+					<h4 class="lf">大型游戏</h4>
+					<h5 class="rt"><a href="#">更多</a></h5>
+				</li>
+				<li><span><a href="">空甲联盟<s></s></a></span></li>
+				<li><span><a href="">诛仙世界<s></s></a></span></li>
+				<li>
+					<span><a href="">混沌试炼</a></span></li>
+					<li><span><a href="">无冬Online</a></span></li>
+					<li><span><a href="">御天降魔传<s></s></a></span></li>
+					<li><span><a href="">HEX</a></span></li>
+					<li><span><a href="">第三把剑<s></s></a></span></li>
+					<li><span><a href="">DOTA2<s></s></a></span></li>
+					<li><span><a href="">射雕英雄传</a></span></li>
+					<li><span><a href="">笑傲江湖OL<s></s></a></span></li>
+					<li><span><a href="">圣斗士星矢OL</a></span></li>
+					<li><span><a href="">神雕侠侣</a></span></li>
+					<li><span><a href="">神鬼世界</a></span></li>
+					<li><span><a href="">神魔大陆2<s></s></a></span></li>
+					<li><span><a href="">梦幻诛仙2</a></span></li>
+
+				</li>
+			</ul>
+			<ul id="pc_game">
+				<li class="title">
+					<h4 class="lf">PC游戏</h4>
+					<h5 class="rt"><a href="#">更多</a></h5>
+				</li>
+				<li><span><a href="">圣斗士星矢<s></s></a></span></li>
+				<li><span><a href="">笑傲江湖</a></span></li>
+				<li><span><a href="">魔力宝贝</a></span></li>
+				<li><span><a href="">将死之日<s></s></a></span></li>
+				<li><span><a href="">神魔大陆</a></span></li>
+				<li><span><a href="">无冬OL XBOX<s></s></a></span></li>
+				<li><span><a href="">暗黑黎明<s></s></a></span></li>
+				<li><span><a href="">完美世界</a></span></li>
+				<li><span><a href="">冰火破坏神<s></s></a></span></li>
+				<li><span><a href="">TOUCH舞动<s></s></a></span></li>
+				<li><span><a href="">神鬼幻想</a></span></li>
+				<li><span><a href="">格斗宝贝<s></s></a></span></li>
+				<li><span><a href="">东邪西毒</a></span></li>
+				<li><span><a href="">全民爱祖玛<s></s></a></span></li>
+				<li><span><a href="">TOUCH<s></s></a></span></li>
+			</ul>
+			<ul id="login">
+				<li class="title">
+					<h4 class="lf">用户注册</h4>
+				</li>
+				<li>
+					<p>客服电话：028-6879876</p>
+					<p>官方QQ群：2586252137</p>
+				</li>
+				<li class="sao"><a href=""><img src="images/saoma.jpg"></a></li>
+				<li><span>官方微博</span><span>官方微信</span></li>
+
+			</ul>
+		</div>
+	</div>
+	<div id="main_b" class="container clearfloat">
+		<!--左侧公司动态-->
+		<div class="main_box lf ">
+			<div class="main_dt">
+				<h3 class="lf">公司动态</h3>
+				<a href="" class="rt">更多</a>
+			</div>
+			<img src="images/dong.jpg">
+			<ul class="bt">
+				<li><a><i></i><span class="gao">[公告]《三国战纪》ps4港服先行版...</span></a><span>2015-09-24</span></li>
+				<li><a><i></i><span class="gao">[公告]《三国战纪》ps4港服先行版...</span></a><span>2015-09-24</span></li>
+				<li><a><i></i><span class="gao">[公告]《三国战纪》ps4港服先行版...</span></a><span>2015-09-24</span></li>
+				<li><a><i></i><span class="gao">[公告]《三国战纪》ps4港服先行版...</span></a><span>2015-09-24</span></li>
+				<li><a><i></i><span class="gao">[公告]《三国战纪》ps4港服先行版...</span></a><span>2015-09-24</span></li>
+				<li><a><i></i><span class="gao">[公告]《三国战纪》ps4港服先行版...</span></a><span>2015-09-24</span></li>
+			</ul>
+		</div>
+		<!--右侧新闻中心-->
+		<div class="main_new lf">
+			<div class="main_dt">
+				<h3 class="lf">热点新闻</h3>
+				<a href="" class="rt">更多</a>
+			</div>
+			<div class="new_lf lf">
+				<img src="images/new.jpg">
+				<h4><a href="">畅游网络“祝寿”联合国教科
+文组织70岁生日</a></h4>
+				<p>作为中国“走出去”文化企业代表，完美世界4月28日应邀出席了在法国巴黎举行的联合国教科文组织成立70周年庆祝活动.</p>
+			</div>
+			<div class="new_rt lf">
+				<h4><a href="">畅游网络“祝寿”联合国教科
+文组织70岁生日</a></h4>
+				<p>作为中国“走出去”文化企业代表，完美世界4月28日应邀出席了在法国巴黎举行的联合国教科文组织成立70周年庆祝活动，并表示愿意继续拓展与该机构在全球文化、教育等领域的合作。</p>
+				<h4><a href="">畅游网络“祝寿”联合国教科
+文组织70岁生日</a></h4>
+				<p>作为中国“走出去”文化企业代表，完美世界4月28日应邀出席了在法国巴黎举行的联合国教科文组织成立70周年庆祝活动，并表示愿意继续拓展与该机构在全球文化、教育等领域的合作。</p>
+				<h4><a href="">畅游网络“祝寿”联合国教科
+文组织70岁生日</a></h4>
+				<p>作为中国“走出去”文化企业代表，完美世界4月28日应邀出席了在法国巴黎举行的联合国教科文组织成立70周年庆祝活动，并表示愿意继续拓展与该机构在全球文化、教育等领域的合作。</p>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="clearfloat">
+		<div class="container">
+			<ul>
+				<li>
+					<div class="main_dt"><h3>公司</h3></div>
+				</li>
+				<li><a href="">公司简介</a></li>
+				<li><a href="">招聘信息</a></li>
+				<li><a href="">联系我们</a></li>
+				<li><a href="">法律声明</a></li>
+				<li><a href="">网站声明</a></li>
+			</ul>
+			<ul>
+				<li>
+					<div class="main_dt"><h3>账号</h3></div>
+				</li>
+				<li><a href="">注册通行账号</a></li>
+				<li><a href="">账号安全</a></li>
+				<li><a href="">修改密码</a></li>
+			</ul>
+			<ul>
+				<li>
+					<div class="main_dt"><h3>产品</h3></div>
+				</li>
+				<li><a href="">公司简介</a></li>
+				<li><a href="">招聘信息</a></li>
+				<li><a href="">联系我们</a></li>
+				<li><a href="">法律声明</a></li>
+				<li><a href="">网站声明</a></li>
+			</ul>
+			<ul>
+				<li>
+					<div class="main_dt"><h3>手机游戏</h3></div>
+				</li>
+				<li><a href="">公司简介</a></li>
+				<li><a href="">招聘信息</a></li>
+				<li><a href="">联系我们</a></li>
+				<li><a href="">法律声明</a></li>
+				<li><a href="">网站声明</a></li>
+			</ul>
+			<ul>
+				<li>
+					<div class="main_dt"><h3>服务</h3></div>
+				</li>
+				<li><a href="">客服中心</a></li>
+				<li><a href="">联系方式</a></li>
+			</ul>
+			<ul>
+				<li>
+					<div class="main_dt"><h3>帮助中心</h3></div>
+				</li>
+				<li><a href="">帮助中心</a></li>
+			</ul>
+			<div class="foot lf clearfloat">
+				<p>京ICP证：050016号《网络文化经营许可证》编号：京网文[2011]0782-287号《网络视听许可证》编号：0110587 京公网安备110105019888号</p> 
+				<p>建议18岁以上的成年人游戏</p>
+				<p>完美世界（北京）网络技术有限公司 版权所有</p>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

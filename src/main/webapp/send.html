@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/style1.css">
+	<link rel="Stylesheet" type="text/css" href="css/loginDialog.css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/cookie_util.js"></script>
+	<script type="text/javascript" src="js/post.js"></script>
+</head>
+
+<body>
+	<div id="top">
+		<div class="container">
+			<div id="top_left">
+				<p><a href="#">收藏本页</a></p>
+				<span>网友作战指挥中心</span>
+				<div id="cywl">
+				  <a href="#" class="top_left_one"></a>
+				  <b><a href="#" class="top_left_two">官方论坛</a></b>
+			    </div>
+			</div>
+			<div id="top_right">
+				<ul>
+					<li>
+						<button id="aaa">登录</button>
+					</li>
+					<li>
+						<div>
+							<p ><a href="javascript:window.location.href='register.html';">注册新账号</a></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div> 
+	</div>
+	<div id="nav">
+		<div id="nav_box" class="container">
+			<div id="nav_left">
+				<a href="#">论坛首页</a>
+				<a href="#">官网首页</a>
+			</div>
+			<div id="nav_right">
+				<a href="#">
+					<span>快捷导航</span>
+					<b></b>
+					<div></div>
+				</a>
+			</div>
+			
+		</div>
+	</div>
+	<div id="search" class="container">
+		<div id="search_box">
+			<input type="text" placeholder="请输入搜索内容">
+			<a href="#">
+				<span>帖子</span>
+				<b></b>
+			</a>
+		</div>
+	    <button>搜索</button>
+	    <p>热搜：
+			<a href="#">活动</a>
+			<a href="#">交友</a>
+	    </p>
+	</div>
+	<div id="news" class="container">
+		<b><a href=""></a></b>
+		<p>
+			<a href="#" class="img"></a>
+			<a href="#">今日：888</a>
+			<a href="#">昨日：1195</a>
+			<a href="#">帖子：243625</a>
+			<a href="#">会员：554182</a>
+		</p>
+		<span><a href="#">查看新帖</a></span>
+	</div>
+	<div id="banner" class="container">
+		<div id="banner_left">
+			<p><a href="#">【8.31更新策划回复】策划陪你解读游戏 武器平衡性面对面…</a></p>
+			<a href="#">【8.31更新策划回复】Hi，大家晚上好，我会今天负责回应大家建议和有疑问的策划James。从大家的反馈数量来看，能够充分感觉到大家对CODOL的热情，拥有这样热爱COD的你们是策划数团队的幸运，我们非常感谢大家…</a>
+			<p><a href="#">MK14投票</a></p>
+		</div>
+		<div id="banner_right">
+			<p><a href="#">&bull;看别人玩喷厉害，不服气？你自己怎么不去试试？</a></p>
+			<p><a href="#">&bull;3折优惠！新手求助！买那个优惠，该不该买</a></p>
+			<p><a href="#">&bull;强烈要求主副武器不算pick点</a></p>
+			<p><a href="#">&bull;华东大区咋连接不上啊…</a></p>
+			<p><a href="#">&bull;我大COD复兴计划</a></p>
+			<p><a href="#">&bull;7枚勋章的斯泰尔TMP（永久）是否是双持</a></p>
+			<p><a href="#">&bull;MK14削弱了，那么下一把削什么</a></p>
+			<p><a href="#">&bull;华东服务器炸了 兄弟们顶一下 我看有多少</a></p>
+			<p><a href="#">&bull;我看到侦察卫星了！！！</a></p>
+			<p><a href="#">&bull;85狙算不算狙击？？？</a></p>
+		</div>
+	</div>
+	<div id="main" class="container">
+		<div id="main_box1">
+			<div id="main_box1_left">
+				<a href="#"><span>+ 发帖</span></a>
+			</div>
+			<div id="main_box1_right">
+				<a href="#" class="block">
+					<b></b>
+					<span>返回</span>
+				</a>
+				<a href="#">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+				<a href="#" class="more">更多
+				</a>
+			</div>
+		</div>
+		<div id="main_box2">
+			<div id="main_box2_left">
+				<ul>
+					<li><a href="">全部主题<b></b></a></li>
+					<li><a href="">最新</a></li>
+					<li><a href="">热门</a></li>
+					<li><a href="">热帖</a></li>
+					<li><a href="">精华</a></li>
+					<li><a href="">更多<i></i></a></li>
+					<li><a href="" class="refresh"></a></li>
+				</ul>
+			</div>
+			<div id="main_box2_right">
+				<ul>
+					<li><a href="">作者</a></li>
+					<li><a href="">回复/查看</a></li>
+					<li><a href="">日期</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main_box3">
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[玩家周边]</a></span></li>
+				<li class="lf"><i><a href="#">开学了惹</a></i></li>
+				<li class="lf"><a href="#">New</a></li>
+				<li class="rt"><p>昨天20:03</p></li>
+				<li class="huifu rt">
+					<em>0</em>
+					<p><span>18</span></p>
+				</li>
+				<li class="rt"><p><a href="#">xiaoye656</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[视听分享]</a></span></li>
+				<li class="lf"><i><a href="#">感觉到了</a></i></li>
+				<li class="lf"><a href="#">New</a></li>
+				<li class="rt"><p>前天11:25</p></li>
+				<li class="huifu rt">
+					<em>1</em>
+					<p><span>30</span></p>
+				</li>
+				<li class="rt"><p><a href="#">hsadpk</a></p></li>	
+			</ul>
+			<ul class="phone">
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[综合交流]</a></span></li>
+				<li class="lf"><i><a href="#">text</a></i></li>
+				<li class="lf"><a href="#"></a></li>
+				<li class="rt"><p>前天00:58</p></li>
+				<li class="huifu rt">
+					<em>10</em>
+					<p><span>55</span></p>
+				</li>
+				<li class="rt"><p><a href="#">mycNo1</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[玩家周边]</a></span></li>
+				<li class="lf"><i><a href="#">使命召唤</a></i></li>
+				<li class="rt"><p class="data">2016-8-3</p></li>
+				<li class="huifu rt">
+					<em>0</em>
+					<p><span>11</span></p>
+				</li>
+				<li class="rt"><p><a href="#">兔子</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[攻略心得]</a></span></li>
+				<li class="lf"><i><a href="#">水命召唤</a></i></li>
+				<li class="rt"><p class="data">2016-8-3</p></li>
+				<li class="huifu rt">
+					<em>2</em>
+					<p><span>10</span></p>
+				</li>
+				<li class="rt"><p><a href="#">笨笨狗</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[综合交流]</a></span></li>
+				<li class="lf"><i><a href="#">哎呀</a></i></li>
+				<li class="rt"><p class="data">2016-8-2</p></li>
+				<li class="huifu rt">
+					<em>0</em>
+					<p><span>10</span></p>
+				</li>
+				<li class="rt"><p><a href="#">frgfdg</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[综合交流]</a></span></li>
+				<li class="lf"><i><a href="#">这个游戏挺不错的</a></i></li>
+				<li class="rt"><p class="data">2016-8-1</p></li>
+				<li class="huifu rt">
+					<em>2</em>
+					<p><span>22</span></p>
+				</li>
+				<li class="rt"><p><a href="#">水滴</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[综合交流]</a></span></li>
+				<li class="lf"><i><a href="#">有人在召唤我</a></i></li>
+				<li class="rt"><p class="data">2016-8-1</p></li>
+				<li class="huifu rt">
+					<em>0</em>
+					<p><span>25</span></p>
+				</li>
+				<li class="rt"><p><a href="#">听</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[综合交流]</a></span></li>
+				<li class="lf"><i><a href="#">资源加速器</a></i></li>
+				<li class="rt"><p class="data">2016-7-31</p></li>
+				<li class="huifu rt">
+					<em>1</em>
+					<p><span>12</span></p>
+				</li>
+				<li class="rt"><p><a href="#">saugf</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[综合交流]</a></span></li>
+				<li class="lf"><i><a href="#">听说开新区了</a></i></li>
+				<li class="rt"><p class="data">2016-7-31</p></li>
+				<li class="huifu rt">
+					<em>0</em>
+					<p><span>5</span></p>
+				</li>
+				<li class="rt"><p><a href="#">据说</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[综合交流]</a></span></li>
+				<li class="lf"><i><a href="#">呀，我又活了</a></i></li>
+				<li class="rt"><p class="data">2016-7-31</p></li>
+				<li class="huifu rt">
+					<em>12</em>
+					<p><span>21</span></p>
+				</li>
+				<li class="rt"><p><a href="#">恐龙世界</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[综合交流]</a></span></li>
+				<li class="lf"><i><a href="#">推荐好东西</a></i></li>
+				<li class="rt"><p class="data">2016-7-30</p></li>
+				<li class="huifu rt">
+					<em>2</em>
+					<p><span>12</span></p>
+				</li>
+				<li class="rt"><p><a href="#">鬼地方</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[视听分享]</a></span></li>
+				<li class="lf"><i><a href="#">广告狗都来了</a></i></li>
+				<li class="rt"><p class="data">2016-7-30</p></li>
+				<li class="huifu rt">
+					<em>5</em>
+					<p><span>68</span></p>
+				</li>
+				<li class="rt"><p><a href="#">梵蒂冈</a></p></li>	
+			</ul>
+			<ul>
+				<li class="lf"><b></b></li>
+				<li class="lf"><span><a href="#">[玩家周边]</a></span></li>
+				<li class="lf"><i><a href="#">这是*战游戏吗？</a></i></li>
+				<li class="rt"><p class="data">2016-7-30</p></li>
+				<li class="huifu rt">
+					<em>1</em>
+					<p><span>20</span></p>
+				</li>
+				<li class="rt"><p><a href="#">frgfdg</a></p></li>	
+			</ul>
+		</div>
+	</div>
+	<div id="fatie" class="container">
+		<a href="#">+ 发帖</a>
+		<div id="fatie_content">
+			<select>
+				<option>选择主题分类</option>
+			</select>
+			<input type="text" id="title"><span>还可输入80个字符</span>
+			<div id="fatie_content_one">
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+				</ul>
+				<p>高级模式</p>
+				<textarea readonly></textarea>
+				<div id="denglu">
+					<p>您需要登录后才可以发帖
+						<a id="bbb">登录</a>
+						<b></b>
+						<a href="javascript:window.location.href='register.html';">注册</a>
+					</p>
+				</div>
+				<div id="fbtz">
+					<a href="#">发表帖子</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--登陆窗口-->
+    <div id="LoginBox">
+        <div class="row1">
+            登录<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+        </div>
+        <div class="row">
+            用户名: <span class="inputBox">
+                <input type="text" id="txtName" placeholder="账号/邮箱" />
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn">*</a>
+        </div>
+        <div class="row">
+            密&nbsp;&nbsp;&nbsp;码: <span class="inputBox">
+                <input type="text" id="txtPwd" placeholder="密码" />
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+        </div>
+        <div class="row">
+            <a href="#" id="loginbtn">登陆</a><a href="" class="wang">忘记密码？<a>
+        </div>
+    </div>
+	
+
+	<script type="text/javascript">
+	$(function ($) {
+		//弹出登录
+		$("#aaa,#bbb").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.6'
+			}, 1000);
+		}).on('click', function () {
+			$("body").append("<div id='mask'></div>");
+			$("#mask").addClass("mask").fadeIn("slow");
+			$("#LoginBox").fadeIn("slow");
+		});
+		//
+		//按钮的透明度
+		$("#loginbtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.8'
+			}, 1000);
+		});
+		//文本框不允许为空---按钮触发
+		$("#loginbtn").on('click', function () {
+			var txtName = $("#txtName").val();
+			var txtPwd = $("#txtPwd").val();
+			if (txtName == "" || txtName == undefined || txtName == null) {
+				if (txtPwd == "" || txtPwd == undefined || txtPwd == null) {
+					$(".warning").css({ display: 'block' });
+				}
+				else {
+					$("#warn").css({ display: 'block' });
+					$("#warn2").css({ display: 'none' });
+				}
+			}
+			else {
+				if (txtPwd == "" || txtPwd == undefined || txtPwd == null) {
+					$("#warn").css({ display: 'none' });
+					$(".warn2").css({ display: 'block' });
+				}
+				else {
+					$(".warning").css({ display: 'none' });
+				}
+			}
+		});
+		//文本框不允许为空---单个文本触发
+		$("#txtName").on('blur', function () {
+			var txtName = $("#txtName").val();
+			if (txtName == "" || txtName == undefined || txtName == null) {
+				$("#warn").css({ display: 'block' });
+			}
+			else {
+				$("#warn").css({ display: 'none' });
+			}
+		});
+		$("#txtName").on('focus', function () {
+			$("#warn").css({ display: 'none' });
+		});
+		//
+		$("#txtPwd").on('blur', function () {
+			var txtName = $("#txtPwd").val();
+			if (txtName == "" || txtName == undefined || txtName == null) {
+				$("#warn2").css({ display: 'block' });
+			}
+			else {
+				$("#warn2").css({ display: 'none' });
+			}
+		});
+		$("#txtPwd").on('focus', function () {
+			$("#warn2").css({ display: 'none' });
+		});
+		//关闭
+		$(".close_btn").hover(function () { $(this).css({ color: 'black' }) }, function () { $(this).css({ color: '#999' }) }).on('click', function () {
+			$("#LoginBox").fadeOut("fast");
+			$("#mask").css({ display: 'none' });
+		});
+	});
+
+	
+
+	</script>	
+</body>
+</html>

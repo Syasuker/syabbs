@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/register.css">
+	<link rel="Stylesheet" type="text/css" href="css/loginDialog.css" />
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/user.js"></script>
+</head>
+<body>
+	<div class="c">
+<!-- 		<form action="#" method="post" id="go"> -->
+		<p class="p1"><span>|</span>欢迎加入畅游网络</p>
+		<p class="p2">
+			<b>*</b>
+			<span class="s1">用户名</span>
+			<input type="text" maxlength="16"  placeholder="请输入6-18位账号" id="user">
+			<span class="s2" id="s1">请不要用真实姓名,注册后不可修改</span>
+		</p>
+		<p class="p4">
+			<b>*</b>
+			<span class="s1">登陆密码</span>
+			<input type="password" maxlength="16" id="i1"   placeholder="请输入登录密码">
+			<span class="s2" id="s3">请输入密码</span>
+		</p>
+		<p class="p5">
+			<b>*</b>
+			<span class="s1">确认密码</span>
+			<input type="password" maxlength="16" id="i2"  placeholder="请再次输入登录密码">
+			<span class="s2" id="s4">请再次输入密码</span>
+		</p>
+		<p class="p7">
+			<b>*</b>
+			<span class="s1">手机号码</span>
+			<input type="text" maxlength="16" id="phone"  placeholder="请输入手机号码">
+			<span class="s2" id="s5">请输入手机号码</span>
+		</p>
+		<p class="p7">
+			<b>*</b>
+			<span class="s1" >验证码</span>
+			<input type="text" style="width:90px;margin-right:5px;" maxlength="16" placeholder="请输入验证码" id="yzm">
+			<a href="#"></a>
+			<span class="s2" id="s6">请输入验证码</span>
+		</p>
+		<p class="p8">
+			<b>*</b>
+			<span class="s1" >手机验证码</span>
+			<input type="text" style="width:105px;margin-right:10px;font-size:12px;" maxlength="16" onblur="checkyzm(this)" id="pyzm"
+			placeholder="请输入手机验证码">
+			<a href="">获得验证码</a>
+			<span class="s2" id="s7">请输入手机验证码</span>
+		</p>
+		<div id="agree">
+			<input type="checkbox" maxlength="16" id="agree1">
+			已阅读并同意签署
+			<a href="">《用户注册协议》</a>
+		</div>
+		<input class="go" id="start" type="button" value="开启畅游网络"></input>
+		<!-- </form> -->
+		<span id="error" style="display:none;">0</span>
+		<p class="go">已经有账号?点击这里<a href="javascript:window.location.href='page.html';" class="gogo" id="aaa">登陆</a></p>
+	</div>
+	<div id="footer">京ICP证：050016号《网络文化经营许可证》编号：京网文[2011]0782-287号《网络视听许可证》编号：0110587 京公网安备110</div>
+	<!--登陆窗口-->
+    <div id="LoginBox">
+        <div class="row1">
+            登录<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+        </div>
+        <div class="row">
+            用户名: <span class="inputBox">
+                <input type="text" id="txtName" placeholder="账号/邮箱" />
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn">*</a>
+        </div>
+        <div class="row">
+            密&nbsp;&nbsp;&nbsp;码: <span class="inputBox">
+                <input type="text" id="txtPwd" placeholder="密码" />
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+        </div>
+        <div class="row">
+            <a href="#" id="loginbtn">登陆</a><a href="backpwd.html" class="wang">忘记密码？<a>
+        </div>
+    </div>
+
+	<script type="text/javascript">
+	$(function ($) {
+		//弹出登录
+		$("#aaa").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.6'
+			}, 1000);
+		}).on('click', function () {
+			$("body").append("<div id='mask'></div>");
+			$("#mask").addClass("mask").fadeIn("slow");
+			$("#LoginBox").fadeIn("slow");
+		});
+		//
+		//按钮的透明度
+		$("#loginbtn").hover(function () {
+			$(this).stop().animate({
+				opacity: '1'
+			}, 600);
+		}, function () {
+			$(this).stop().animate({
+				opacity: '0.8'
+			}, 1000);
+		});
+		//文本框不允许为空---按钮触发
+		$("#loginbtn").on('click', function () {
+			var txtName = $("#txtName").val();
+			var txtPwd = $("#txtPwd").val();
+			if (txtName == "" || txtName == undefined || txtName == null) {
+				if (txtPwd == "" || txtPwd == undefined || txtPwd == null) {
+					$(".warning").css({ display: 'block' });
+				}
+				else {
+					$("#warn").css({ display: 'block' });
+					$("#warn2").css({ display: 'none' });
+				}
+			}
+			else {
+				if (txtPwd == "" || txtPwd == undefined || txtPwd == null) {
+					$("#warn").css({ display: 'none' });
+					$(".warn2").css({ display: 'block' });
+				}
+				else {
+					$(".warning").css({ display: 'none' });
+				}
+			}
+		});
+		//文本框不允许为空---单个文本触发
+		$("#txtName").on('blur', function () {
+			var txtName = $("#txtName").val();
+			if (txtName == "" || txtName == undefined || txtName == null) {
+				$("#warn").css({ display: 'block' });
+			}
+			else {
+				$("#warn").css({ display: 'none' });
+			}
+		});
+		$("#txtName").on('focus', function () {
+			$("#warn").css({ display: 'none' });
+		});
+		//
+		$("#txtPwd").on('blur', function () {
+			var txtName = $("#txtPwd").val();
+			if (txtName == "" || txtName == undefined || txtName == null) {
+				$("#warn2").css({ display: 'block' });
+			}
+			else {
+				$("#warn2").css({ display: 'none' });
+			}
+		});
+		$("#txtPwd").on('focus', function () {
+			$("#warn2").css({ display: 'none' });
+		});
+		//关闭
+		$(".close_btn").hover(function () { $(this).css({ color: 'black' }) }, function () { $(this).css({ color: '#999' }) }).on('click', function () {
+			$("#LoginBox").fadeOut("fast");
+			$("#mask").css({ display: 'none' });
+		});
+	});
+	//验证表单提交变量
+	var error=document.getElementById("error");
+
+	
+	//验证用户名
+	var user=document.getElementById("user");
+	user.onblur=function() {
+			var value=user.value;
+			if(value.length<6&&value.length>0||value.length>18){
+				document.getElementById("s1").style.display="inline-block";
+				document.getElementById("s1").innerHTML="请正确输入6-18位账号"
+				document.getElementById("s1").style.color="red";
+			} 
+			if(value.length>=6&&value.length<=18){
+				show=document.getElementById("s1").style.display="none";
+				error.innerHTML=parseInt(error.innerHTML)+1;
+			}
+		}
+		//验证密码
+		var i1=document.getElementById("i1");
+		i1.onblur=function(){
+			var value=i1.value;
+			if(value.length<6&&value.length>0||length>18){
+				document.getElementById("s3").style.color="red"
+				document.getElementById("s3").style.display="inline-block";
+				document.getElementById("s3").innerHTML="请正确输入6-18位密码";
+			}
+			if(value.length>=6&&value.length<=18){
+				document.getElementById("s3").style.display="none";
+				error.innerHTML=parseInt(error.innerHTML)+1;
+			}
+		}
+		//验证密码是否相同
+		var i2=document.getElementById("i2");
+		i2.onblur=function (){
+			var pwd1=document.getElementById("i1").value;
+			var pwd2=document.getElementById("i2").value;
+			if(pwd1!=pwd2){
+				document.getElementById("s4").style.color="red"
+				document.getElementById("s4").style.display="inline-block";
+				document.getElementById("s4").innerHTML="输入密码不一致,请重新输入!"
+			}else{
+				document.getElementById("s4").style.display="none";
+				error.innerHTML=parseInt(error.innerHTML)+1;
+			}
+		}
+		//验证手机号
+		var phone=document.getElementById("phone");
+		phone.onblur=function(){
+			var reg=/^[1][358][0-9]{9}$/;
+			if(!reg.test(phone.value)){
+				document.getElementById("s5").style.display="inline-block";
+				document.getElementById("s5").style.color="red";
+				document.getElementById("s5").innerHTML="请输入正确格式的手机号!!";
+			}else{
+				document.getElementById("s5").style.display="none";
+				error.innerHTML=parseInt(error.innerHTML)+1;
+			}
+		}
+		//验证验证码
+		var yzm=document.getElementById("yzm");
+		yzm.onblur=function(){
+			var reg=/^[a-z]{4}$/i;
+			if(!reg.test(yzm.value)){
+				document.getElementById("s6").style.display="inline-block";
+				document.getElementById("s6").style.color="red";
+				document.getElementById("s6").innerHTML="请输入正确格式的验证码!";
+			}else{
+				document.getElementById("s6").style.display="none";
+				error.innerHTML=parseInt(error.innerHTML)+1;
+			}
+		}
+		//手机验证码
+		var pyzm=document.getElementById("pyzm")
+		pyzm.onblur=function () {
+			  reg=/^\d{6}$/;
+			if(!reg.test(pyzm.value)){
+				document.getElementById("s7").style.color="red";
+				document.getElementById("s7").style.display="inline-block";
+				document.getElementById("s7").innerHTML="请正确输入6位数字验证码"
+			}else{
+				document.getElementById("s7").style.display="none";
+				error.innerHTML=parseInt(error.innerHTML)+1;
+			}
+		}
+		//验证协议是否被选择
+	var agree1=document.getElementById("agree1");
+		agree1.onclick=function(){
+		if(agree1.checked){
+			if(error.innerHTML<8){
+				error.innerHTML=parseInt(error.innerHTML)+1;
+			}
+		}
+	}
+		
+/* 		var go=document.getElementById("go");
+
+		go.onsubmit=function(){
+			if(error.innerHTML!=8){
+				alert("您的注册信息输入有误或不完整请检查后再试");
+				return false;
+			}	
+			else if(error.innerHTML=8){
+//					window.open("page.html");
+//					return true;
+				
+			}
+		}	 */
+	</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+body{
+	background: url(../images/zhuce.jpg) no-repeat;
+	background-size:cover;
+	color: #fff;
+	font-size: 16px;
+}
+.c{
+	width:550px;
+	margin:50px auto;
+	overflow: hidden;
+}
+p{
+	height: 50px;
+	line-height: 50px;
+}
+.p1 span{
+	font-weight:1000;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+b{
+	color: red;
+}
+.s1{
+	display: inline-block;
+	width:90px;
+	font-size: 14px;
+}
+.s2{
+	display: inline-block;
+	font-size: 12px;
+}
+input{
+	padding:0;
+	width:210px;
+	height: 30px;
+	border-radius:3px;
+	margin-right:40px;
+}
+.p7 a{
+	display:inline-block;
+	vertical-align: middle;
+	width:115px;
+	height:30px;
+	background: url(../images/pt.png) no-repeat -136px -57px;
+	margin-right:35px;
+}
+.p8 a{
+	display:inline-block;
+	vertical-align: middle;
+	width:90px;
+	height:30px;
+	margin-right:40px;
+	background: #F9671E;
+	color: #fff;
+	line-height:30px;
+	text-align: center;
+	font-size: 12px;
+}
+
+#agree input{
+	float: left;
+	width:10px;
+	height: 10px;
+	margin:8px 10px 30px 105px;
+}
+#agree{
+	font-size: 12px;
+	margin:20px 0;
+}
+#agree a{
+	 color:#ECA530;
+	 font-size: 12px;
+}
+#agree a:hover{
+	text-decoration: underline;
+}
+input.go{
+	display: inline-block;
+	width:210px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	background: #F9671E;
+	border-radius: 5px;
+	position: relative;
+	right:20px;
+}
+input.go:hover{
+	cursor:pointer;
+}
+p.go{
+	margin-top: 10px;
+	font-size: 14px;
+	padding-left:125px;
+}
+.gogo{
+	color: #DBA121;
+	display: inline-block;
+	margin-left: 2px;
+}
+#footer{
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	background:rgba(70,72,74,0.6);
+	color: #7E7E7E;
+}

@@ -1,0 +1,111 @@
+#top{
+	height: 160px;
+	background-color: #1C1C1C;
+	position: relative;
+}
+#top ul{
+	position: absolute;
+	top:5px;
+	right:0px;
+}
+#top li{
+	float: left;
+	width:40px;
+}
+#top li a{
+	display: block;
+	float: left;
+	color: #fff;
+	text-align:center;
+}
+#top span{
+	float:left;
+	margin-left:6px;
+	color: #999999;
+}
+#logo{
+	width:120px;
+	height:92px;
+	background:url(../images/pt.png) no-repeat ;
+	margin-top:34px;
+}
+#text{
+	width:160px;
+	height: 90px;
+	text-align: center;
+	color: #fff;
+	font-size:30px;
+	margin-left: 20px;
+	margin-top: 35px;
+	line-height: 90px;
+	border-left: 3px solid #fff;
+	font-weight: bold;
+}
+#nav{
+	height: 40px;
+	background: #999999;
+}
+#nav a{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	color: #256CDF;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#daohang{
+	width:635px;
+	height: 40px;
+	background: url(../images/pt.png) no-repeat 0 -105px;
+	margin:  50px 0;
+}
+p{
+	color: #1B6AE2;
+}
+#zhanghao input{
+	width:400px;
+	height: 40px;
+	border:1px solid #1B6AE2;
+	margin-right: 20px;
+}
+#main .ccc{
+	overflow: hidden;
+}
+#main span{
+	color: #E30E0E;
+}
+#yanzheng{
+	overflow: hidden;
+}
+#yanzheng input {
+	width:235px;
+	height: 40px;
+	border:1px solid #1B6AE2;
+	margin-right:20px;
+}
+.yanzheng{
+	width:103px;
+	height: 40px;
+	background: url(../images/pt.png) no-repeat -133px -3px; 
+	margin-right: 20px;
+}
+
+.a{
+	text-align: center;
+	display:block;
+	width:410px;
+	height:40px;
+	line-height: 40px;
+	margin-top: 20px;
+	color: #fff;
+	background: #1B6AE2;
+	border-radius: 5px;
+}
+#footer{
+	text-align: center;
+	color: #666666;
+	margin-top:60px;
+}
+
