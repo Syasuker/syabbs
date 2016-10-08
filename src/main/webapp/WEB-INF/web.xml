@@ -21,7 +21,7 @@
 		<param-value>classpath*:spring-*.xml</param-value> 
 		</init-param> 
 	</servlet>
-
+	
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>*.sya</url-pattern>

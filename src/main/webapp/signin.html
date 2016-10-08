@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>注册登陆</title>
+
+<!-- 引用的样式和脚本 -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="css/signin.css" >
+<link rel="stylesheet" href="css/sticky-footer.css" >
+<script type="text/javascript" src="js/cookie_util.js"></script>
+<script type="text/javascript" src="bootstrap/js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/const.js"></script>
+<script type="text/javascript" src="js/signin.js"></script>
+</head>
+
+<body>
+<div id="wrap">
+
+	<!-- 登录页面 -->
+	<div id="login_page" class="container ">
+		<form class="form-signin" role="form">
+			<h3 class="form-signin-heading">尊敬的用户,欢迎回来</h3>
+			<!-- 验证信息 -->
+			<div id="login_msg" class="hidden"><span class="help-block alert alert-danger">自己独占一行或多行的块级帮助文本。</span></div>
+			<!-- 账户密码 -->
+			<div class=""><input type="text" id="login_usr" class="form-control " placeholder="用户名" required autofocus></div> 
+			<div class=""><input type="password" id="login_pwd" class="form-control"	placeholder="密码" required autofocus></div>
+			<!-- 验证码 -->
+				<div class="row">
+					<div class="col-xs-5 imgcode">
+						<img id="" class="form-control getimgcode" alt="验证码" src="images/code.jpg">
+					</div>
+					<div class="col-xs-7 code">
+						<input type="text" id="login_code" class="cheakcode form-control" style="height: 52px;" placeholder="验证码" required>
+					</div>
+				</div>
+				
+				<div class="checkbox">
+				<label> <input type="checkbox" value="remember-me">记住我</label>
+			</div>
+			<button id="login" class="btn btn-lg btn-primary btn-block" type="button">登录</button>
+			<div>没有账户?<a id="to_register">加入我们</a></div>
+		</form>
+	</div>
+	
+	<!-- 注册页面 -->
+	<div id="register_page" class="container hidden">
+		<form class="form-signin" role="form">
+			<h3 class="form-signin-heading">加入我们</h3>
+			<div id='register_msg' class='hidden'><span class="help-block alert alert-danger">自己独占一行或多行的块级帮助文本。</span></div>
+			<div><input type="text" class="form-control " id="mobile" placeholder="手机号" required autofocus></div>
+			<div><input type="text" class="form-control " id="signin_usr" placeholder="用户名" required autofocus></div> 
+			<div><input type="password" class="form-control" id="signin_pwd" placeholder="密码" required autofocus></div>
+			<div><input type="password" class="form-control" id="signin_repwd" placeholder="确认密码" required autofocus></div>
+			<!-- 验证码 -->
+<!-- 			<div class="row">
+					<div class="col-xs-5 imgcode">
+						<img id="" class="form-control getimgcode" alt="验证码" src="images/code.jpg">
+					</div>
+					<div class="col-xs-7 code">
+						<input type="text" id="register_code" class="cheakcode form-control " style="height: 52px;" placeholder="验证码" required>
+					</div>
+				</div>
+				 -->
+			<!-- 验证码 -->
+
+				<div class="checkbox">
+					<label> <input id="usr_agreement" type="checkbox" value="remember-me">
+						已阅读并同意签署 <a>《用户注册协议》</a>
+					</label>
+				</div>
+				<button id="signin" class="btn btn-lg btn-primary btn-block" type="button">加入我们</button>
+			<div>已有账户?<a id="to_login">登录</a></div>
+		</form>
+		<script type="text/javascript">
+		
+			/* 页面切换 */
+			$('#to_register').click(function() {
+				$('#register_page').removeClass('hidden');
+				$('#login_page').addClass('hidden');
+/*  			$('#register_page').addClass('show');  */
+			});
+			
+			$('#to_login').click(function() {
+				$('#login_page').removeClass('hidden');
+				$('#register_page').addClass('hidden');
+/* 				$('#login_page').addClass('show'); */
+			});
+			
+		</script>
+	</div>
+</div>	
+
+<!-- 	<div id="push"></div> -->
+	<!-- 页脚 -->
+	<div id="footer">
+		<div class="container">
+			<p class="text-muted">SyaBBS &copy Power By Syasuker</p>
+		</div>
+	</div>
+	
+</body>
+</html>

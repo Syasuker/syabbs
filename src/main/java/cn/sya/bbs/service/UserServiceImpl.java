@@ -51,6 +51,8 @@ public class UserServiceImpl implements UserService {
 		password = Md5.saltMd5(password);
 		user = new User(id, name, password, mobile, "");
 		dao.saveUser(user);
+		
+		//清理掉返回的密码?
 		return user;
 		
 	}
