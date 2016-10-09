@@ -140,13 +140,15 @@ function signinAction(){
 	var name = $('#signin_usr').val();
 	var pwd = $('#signin_pwd').val();
 	var repwd = $('#signin_repwd').val();
-	console.log(mobile);
-	console.log(name);
-	console.log(pwd);
-	console.log(repwd);
+	var agree = $('#usr_agreement').is(':checked');
+	
+//	console.log(mobile);
+//	console.log(name);
+//	console.log(pwd);
+//	console.log(repwd);
 	
 	//Js验证 用户协议
-	if(!($('#usr_agreement').is(':checked'))){
+	if(!$('#usr_agreement').is(':checked')){
 		console.log('请同意用户协议');
 		$('#register_msg').removeClass('hidden');
 		$('#register_msg').children().html('请勾选同意用户注册协议');
@@ -195,6 +197,7 @@ function signinAction(){
 		return false;
 	}
 	
+	
 	//验证通过
 	$('#register_msg').addClass('hidden');
 	//发送请求
@@ -202,7 +205,7 @@ function signinAction(){
 		url:baseUrl+'/account/regist.sya',
 		method:'post',
 		dataType:'JSON',
-		data:{"name":name,"password":pwd,"mobile":mobile},
+		data:{"name":name,"password":pwd,"mobile":mobile,"repwd":repwd,"agree":agree},
 		
 		success:function(result){
 			console.log(result);//接收服务器返回的数据

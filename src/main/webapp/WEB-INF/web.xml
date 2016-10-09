@@ -26,4 +26,14 @@
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>*.sya</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 访问域名跳转到登录页面 -->
+	<filter>
+		<filter-name>access</filter-name>
+		<filter-class>cn.sya.bbs.web.AccessFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>access</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 </web-app>

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -32,8 +31,21 @@ public class AccountController {
 	
 	@RequestMapping("/regist.sya")
 	@ResponseBody
-	public JsonResult<User> regist(String name,String password,String mobile){
+	public JsonResult<User> regist(String name,String password,String mobile,HttpServletRequest req){
 		System.out.println("regist.sya");
+		String repwd = req.getParameter("repwd");
+		String agree = req.getParameter("agree");
+		
+		if (agree==null||!"true".equals(agree)) {
+			return new JsonResult<User>("请勾选同意用户注册协议");
+		}
+		if (repwd==null||repwd.trim().isEmpty()) {
+			return new JsonResult<User>("重复密码不能为空");
+		}
+		if (!repwd.equals(password)) {
+			return new JsonResult<User>("两次输入的密码不一致,请重新输入密码");
+		}
+		
 		User user = userService.register(name, password, mobile);
 		//TODO 清理返回的密码
 		return new JsonResult<User>(user);
@@ -123,7 +135,6 @@ public class AccountController {
 	public byte[] code2(){
 		byte[] buf = null;
 		try {
-			
 			CreateImageCode vCode = new CreateImageCode(80, 30);
 			
 			//创建一个Byte输出流

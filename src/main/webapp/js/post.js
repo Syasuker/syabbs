@@ -14,6 +14,7 @@ $(function() {
 	var usrName = getCookie("userName");
 	if (usrName!=null && usrName.length>0) {
 		$('#top_right').html('欢迎您:<p style="font-size: 24px;">'+usrName+'</p><a><p id="log_out">登出</P></a>');
+		
 		$("textarea").removeAttr("readonly");
 	}
 	
