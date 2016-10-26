@@ -37,12 +37,12 @@ function getRootPath(){
     return(localhostPaht+projectName);  
 }  
 
-
+/*全局变量根目录*/
 var baseUrl = getRootPath();
 
-
-
-
+/*状态*/
+var SUCCESS=0;
+var ERROR=1;
 
 
 

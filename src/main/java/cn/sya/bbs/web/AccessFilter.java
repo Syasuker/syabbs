@@ -26,6 +26,15 @@ public class AccessFilter implements Filter{
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse resp = (HttpServletResponse)response;
 		StringBuffer path = req.getRequestURL();
+		
+		System.out.println(req.getHeader("User-Agent"));
+//		System.out.println(req.getHeader("x-forwarded-for"));
+//		System.out.println(req.getHeader("WL-Proxy-Client-IP"));
+//		System.out.println(req.getHeader("Proxy-Client-IP"));
+//		System.out.println(req.getHeader("HTTP_CLIENT_IP"));
+//		System.out.println(req.getHeader("HTTP_X_FORWARDED_FOR"));
+		System.out.println(req.getHeaderNames().toString());
+		
 		String url = path.toString();
 //		System.out.println(url);
 		//拦截无指向
@@ -36,6 +45,8 @@ public class AccessFilter implements Filter{
 		}
 		chain.doFilter(req, resp);
 	}
+	
+	
 
 	public void destroy() {
 		

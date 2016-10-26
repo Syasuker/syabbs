@@ -13,7 +13,7 @@ import cn.sya.bbs.web.JsonResult;
 @Component
 @Aspect
 public class ControllerExceptionAspect {
-	@Around("bean(accountController)")
+	@Around("bean(accountController)||bean(postController)")
 	public Object process(ProceedingJoinPoint joinPoint){
 		try {
 			System.out.println("开始调用控制器");

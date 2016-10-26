@@ -1,0 +1,60 @@
+/* 
+   css/list.css
+ */
+
+body {
+	font-family: "simsun";
+	font-family: "微软雅黑";
+	background-color: #eee;
+}
+
+#bodyer {
+  max-width: 768px;
+}
+
+
+.id{
+	width: 15px;
+}
+
+.by , .time{
+	width: 105px;
+	/* text-align: center; */
+}
+
+.title {
+	
+}
+
+
+tbody a{
+	color: #333;
+	cursor:pointer;
+}
+
+
+/* 给用户位置限定死大小 */
+#usr {
+/*     width: 105px; */
+}
+
+
+.pagination {
+	/* float: right; */
+	margin: 0;
+}
+
+#post {
+/* 	outline: #00FF00 dotted thick; */
+}
+
+#input_post_title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#save_post {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

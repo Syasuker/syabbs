@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -33,9 +32,15 @@ public class TestUser {
 		dao.saveUser(user);
 	}
 	@Test
-	public void testfindUser(){
+	public void testfindUserByName(){
 		UserDao dao = ac.getBean("userDao",UserDao.class);
 		System.out.println(dao);
 		System.out.println(dao.findUserByName("zhenji"));
+	}
+	@Test
+	public void testFindUserByid(){
+		UserDao dao = ac.getBean("userDao",UserDao.class);
+		User user = dao.findUserById("e52342ab-15a5-4b24-8b0a-98affdc8dcc7");
+		System.out.println(user);
 	}
 }

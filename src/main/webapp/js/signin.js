@@ -122,8 +122,8 @@ function loginAction() {
 				var user = result.data;
 				SetCookie("userId", user.id);
 				SetCookie("userName", user.name);
-				
-				window.location.href="send.html";
+				/*跳转页面*/
+				window.location.href=baseUrl+"/list.html?"+new Date().getTime();
 			}else {
 				$('#login_msg').removeClass('hidden');
 				$('#login_msg').children().html(result.message);

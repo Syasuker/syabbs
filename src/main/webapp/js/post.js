@@ -21,6 +21,7 @@ $(function() {
 	$('#log_out').click(log_outAction);
 });
 
+
 /*
  * 登出控制器
  */

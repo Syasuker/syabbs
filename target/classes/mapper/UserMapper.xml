@@ -6,9 +6,9 @@
 <mapper namespace="cn.sya.bbs.dao.UserDao">
 
 	<insert id="saveUser" parameterType="cn.sya.bbs.entity.User">
-		INSERT
+		INSERT 
 		INTO 
-			user
+			cn_user
 			(user_id,user_name,user_password,user_mobile,user_token)
 		VALUES
 			(#{id},#{name},#{password},#{mobile},#{token})
@@ -23,25 +23,33 @@
 			user_mobile as mobile,
 			user_token as token
 		FROM
-			user
+			cn_user
 		WHERE
 			user_name = #{name}
 	</select>
+	<!-- 
+	 * @param id
+	 * @param name
+	 * @param password
+	 * @param mobile
+	 * @param token	
+	 -->
+	 
+	<select id="findUserById" parameterType="string"
+		resultType="cn.sya.bbs.entity.User">
+		SELECT
+		    user_id as id,
+		    user_name as name,
+		    user_password as password,
+		    user_token as token,
+		    user_mobile as mobile
+		FROM
+		    cn_user
+		WHERE
+		    user_id = #{id}
+	</select>
 	
 <!-- 
-	<select id="findUserById" parameterType="string"
-		resultType="cn.tedu.note.entity.User">
-		SELECT
-		cn_user_id as id,
-		cn_user_name as name,
-		cn_user_password as password,
-		cn_user_token as token,
-		cn_user_nick as nick
-		FROM
-		cn_user
-		WHERE
-		cn_user_id = #{id}
-	</select>
 	<update id="updataUser" parameterType="cn.tedu.note.entity.User">
 		UPDATE
 			cn_user
@@ -60,4 +68,6 @@
 		cn_user_id = #{id}
 	</delete>
  -->	
+ 
+ 
 </mapper>
