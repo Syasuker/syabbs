@@ -10,3 +10,5 @@ SpringMVC+Mybatis+bootstrap
 
 ## 部署地址
 [syabbs](http://syabbs.daoapp.io/syabbs) 
+
+## test
