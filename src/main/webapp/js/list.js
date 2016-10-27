@@ -144,19 +144,3 @@ function paintPosts(){
 
 
 
-
-
-/*删除Cookied的登出方法*/
-function log_outAction() {
-	delCookie("userId");
-	delCookie("userName");
-	delCookie("token");
-	window.location.reload();
-}
-
-
-/*跳转登录页面方法*/
-function goto_loginAction() {
-//	console.log('登录页面');
-	window.location.href=baseUrl+"/signin.html";
-}

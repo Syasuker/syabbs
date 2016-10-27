@@ -25,7 +25,6 @@
 <script type="text/javascript" src="../js/cookie_util.js"></script>
 <script type="text/javascript" src="../bootstrap/js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="../js/const.js"></script>
-<script type="text/javascript" src="../js/list.js"></script>
 <script type="text/javascript" src="../js/post.js"></script>
 
 
@@ -86,7 +85,7 @@
 	<!-- 页面主体 -->
 	<script type="text/javascript">
 	    /* 返回的jsonResult数据 */
-	    var data = ${jsonResult};
+	    var result = ${jsonResult};
 	</script>
 	<div id="wrap">
 		<!-- table-responsive -->
@@ -97,7 +96,7 @@
 					Use this document as a way to quickly start any new project.<br>
 					All you get is this text and a mostly barebones HTML document.
 				</p>
-				<p>${PostID}</p>
+				<div id="content">贴子</div>
 			</div>
 		</div>
 	</div>

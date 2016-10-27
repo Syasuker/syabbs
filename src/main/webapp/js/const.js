@@ -48,7 +48,47 @@ var ERROR=1;
 
 
 
+/*页首*/
 
+/*自动触发*/
+$(function() {
+	//TODO Cookie令牌验证
+	
+	var usrName = getCookie("userName");
+	if (usrName!=null && usrName.length>0) {
+		$('#usr').html(usrName+'<b class="caret"></b>');
+		
+		/*$("textarea").removeAttr("readonly");*/
+	}else {
+		/*若没有用户登录则点击跳转到登录页面*/
+		/*删除下拉菜单*/
+		$('#usr').next().remove();
+		$('#usr').click(goto_loginAction);
+	}
+	
+	/* 登出按钮 */
+	$('#log_out').click(log_outAction);
+});
+
+
+
+
+
+
+/*删除Cookied的登出方法*/
+function log_outAction() {
+	delCookie("userId");
+	delCookie("userName");
+	delCookie("token");
+	window.location.reload();
+}
+
+
+/*跳转登录页面方法*/
+function goto_loginAction() {
+//	console.log('登录页面');
+	window.location.href=baseUrl+"/signin.html";
+}
 
 
 

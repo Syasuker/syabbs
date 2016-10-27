@@ -25,7 +25,6 @@
 <script type="text/javascript" src="../js/cookie_util.js"></script>
 <script type="text/javascript" src="../bootstrap/js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="../js/const.js"></script>
-<script type="text/javascript" src="../js/list.js"></script>
 <script type="text/javascript" src="../js/post.js"></script>
 
 
