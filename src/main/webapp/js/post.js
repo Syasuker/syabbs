@@ -6,8 +6,7 @@
 
 /* MODEL数据 */
 var model = {
-
-    post:[],
+    post:{},
     user:{},
 };
 

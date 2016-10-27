@@ -29,6 +29,8 @@
 <script type="text/javascript" src="../js/post.js"></script>
 
 
+
+
 <title>贴子&回复</title>
 </head>
 <body>
@@ -82,11 +84,14 @@
 	<!-- 页眉 -->
 
 	<!-- 页面主体 -->
+	<script type="text/javascript">
+	    var post = ${postJson};
+	</script>
 	<div id="wrap">
 		<!-- table-responsive -->
 		<div id="bodyer" class="container">
 			<div class="starter-template">
-				<h1>hello world!Title</h1>
+				<h1 id="title">hello world!Title</h1>
 				<p class="lead">
 					Use this document as a way to quickly start any new project.<br>
 					All you get is this text and a mostly barebones HTML document.
