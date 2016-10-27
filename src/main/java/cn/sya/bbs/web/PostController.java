@@ -10,8 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import cn.sya.bbs.entity.Post;
 import cn.sya.bbs.service.PostService;
+import cn.sya.bbs.util.JackSon;
 
 @Controller
 @RequestMapping("/post")
@@ -45,6 +49,7 @@ public class PostController {
 		return new JsonResult<Post>(post);
 	}
 	
+	
 //	syabbs/post/post.sya
 	@RequestMapping("/post.sya")
 	public String showPost(HttpServletRequest request){
@@ -53,8 +58,11 @@ public class PostController {
 		
 		Post post = postService.loadPost(PostID);
 		
-		JsonResult<Post> postJson = new JsonResult<Post>(post);
-		request.setAttribute("postJson", postJson);
+		//测试jackson
+//		System.out.println(JackSon.toJson(postJson));
+		String jsonResult = JackSon.toJson(new JsonResult<Post>(post));
+		
+		request.setAttribute("jsonResult", jsonResult);
 		return "post";
 	}
 

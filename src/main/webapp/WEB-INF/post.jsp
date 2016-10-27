@@ -85,7 +85,8 @@
 
 	<!-- 页面主体 -->
 	<script type="text/javascript">
-	    var post = ${postJson};
+	    /* 返回的jsonResult数据 */
+	    var data = ${jsonResult};
 	</script>
 	<div id="wrap">
 		<!-- table-responsive -->
