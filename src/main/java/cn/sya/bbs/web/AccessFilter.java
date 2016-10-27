@@ -39,7 +39,7 @@ public class AccessFilter implements Filter{
 //		System.out.println(url);
 		//拦截无指向
 		if (url.endsWith("syabbs/")) {
-			String login = url+"signin.html";
+			String login = url+"list.html";
 			resp.sendRedirect(login);
 			return;
 		}

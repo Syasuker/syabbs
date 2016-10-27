@@ -46,10 +46,13 @@ public class PostController {
 	}
 //	syabbs/post/post.sya
 	@RequestMapping("/post.sya")
-	@ResponseBody
-	public JsonResult<Post> showPost(){
+	public String showPost(HttpServletRequest request){
+		String PostID = request.getParameter("PostID");
+		System.out.println("showPost");
 		
-		return null;
+		request.setAttribute("PostID", PostID);
+		System.out.println(PostID);
+		return "post";
 	}
 
 }

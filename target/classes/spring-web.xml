@@ -18,4 +18,10 @@
     <!--扫描控制器-->
     <context:component-scan base-package="cn.sya.bbs.web"></context:component-scan>
     <mvc:annotation-driven></mvc:annotation-driven>
+	<!--配置视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property value="/WEB-INF/" name="prefix" />
+		<property value=".jsp" name="suffix" />
+	</bean>
+
 </beans>

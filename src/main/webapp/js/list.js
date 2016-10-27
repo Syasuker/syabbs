@@ -158,5 +158,5 @@ function log_outAction() {
 /*跳转登录页面方法*/
 function goto_loginAction() {
 //	console.log('登录页面');
-	window.location.href="signin.html";
+	window.location.href=baseUrl+"/signin.html";
 }
