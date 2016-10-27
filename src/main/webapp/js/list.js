@@ -12,7 +12,7 @@ var model = {
 //	假象板块点击修改listmodel中的板块值
     plateID:1,
     posts:[],
-    user:{}
+    user:{},
 };
 
 
@@ -65,6 +65,14 @@ function savePostAction() {
 		success:function(result){
 			if (result.state==SUCCESS) {
 				console.log('保存成功!');
+				var post = result.data;
+				console.log(post);
+				var ary = [{author:getCookie('userName'),body:post.body,id:post.post_id,modTime:post.lastModifyTime,plate:model.plateID,title:post.title}];
+//				将返回的数据存入MODEL
+				model.posts = ary.concat(model.posts);
+				//刷写贴子列表
+				paintPosts();
+				
 			}else {
 //				错误弹窗
 				alert(result.message);
@@ -72,6 +80,8 @@ function savePostAction() {
 		}
 	});
 }
+
+
 
 
 
