@@ -44,5 +44,12 @@ public class PostController {
 		
 		return new JsonResult<Post>(post);
 	}
+//	syabbs/post/post.sya
+	@RequestMapping("/post.sya")
+	@ResponseBody
+	public JsonResult<Post> showPost(){
+		
+		return null;
+	}
 
 }

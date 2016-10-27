@@ -72,6 +72,10 @@ function savePostAction() {
 				model.posts = ary.concat(model.posts);
 				//刷写贴子列表
 				paintPosts();
+				//清空编辑器
+				um.setContent('');
+				$('#input_post_title').val("");
+				
 				
 			}else {
 //				错误弹窗
@@ -122,7 +126,7 @@ function paintPosts(){
 	//清空tbody
 	tbody.empty();
 	
-	var url = baseUrl+'/post/list.sya?PostID=';
+	var url = baseUrl+'/post/post.sya?PostID=';
 	
 	for (var i = 0; i < posts.length; i++) {
 		var post = posts[i];
@@ -144,9 +148,9 @@ function paintPosts(){
 
 /*删除Cookied的登出方法*/
 function log_outAction() {
-//	delCookie("userId");
+	delCookie("userId");
 	delCookie("userName");
-//	delCookie("token");
+	delCookie("token");
 	window.location.reload();
 }
 
