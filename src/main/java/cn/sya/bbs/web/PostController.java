@@ -24,7 +24,7 @@ public class PostController {
 	@RequestMapping("/list.sya")
 	@ResponseBody
 	public JsonResult<List<Map<String, Object>>> listPost(String plateID){
-		System.out.println("listPost Controller");
+//		System.out.println("listPost Controller");
 		List<Map<String, Object>> posts = postService.listPost(plateID);
 		return new JsonResult<List<Map<String, Object>>>(posts);
 	}
@@ -33,7 +33,7 @@ public class PostController {
 	@RequestMapping("/save.sya")
 	@ResponseBody
 	public JsonResult<Post> savePost(HttpServletRequest req){
-		System.out.println("sendPost Controller");
+//		System.out.println("sendPost Controller");
 		
 		String title = req.getParameter("title");
 		String body = req.getParameter("body");
@@ -47,8 +47,8 @@ public class PostController {
 //	syabbs/post/post.sya
 	@RequestMapping("/post.sya")
 	public String showPost(HttpServletRequest request){
+//		System.out.println("showPost");
 		String PostID = request.getParameter("PostID");
-		System.out.println("showPost");
 		
 		request.setAttribute("PostID", PostID);
 		System.out.println(PostID);

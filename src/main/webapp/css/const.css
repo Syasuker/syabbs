@@ -1,0 +1,18 @@
+/* 
+
+css/const.css
+
+全局的样式
+ */
+
+/* 设置字体 */
+body {
+	font-family: "simsun";
+	font-family: "微软雅黑";
+	background-color: #eee;
+}
+
+/* 超链接使用小手图标 */
+a{
+	cursor:pointer;
+}

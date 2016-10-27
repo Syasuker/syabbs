@@ -9,6 +9,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/list.css">
+    <link rel="stylesheet" href="../css/const.css">
     <link rel="stylesheet" href="../css/sticky-footer.css" >
     <link rel="stylesheet" href="../css/navbar-static-top.css" >
     
@@ -25,9 +26,10 @@
 <script type="text/javascript" src="../bootstrap/js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="../js/const.js"></script>
 <script type="text/javascript" src="../js/list.js"></script>
+<script type="text/javascript" src="../js/post.js"></script>
 
 
-<title>贴子</title>
+<title>贴子&回复</title>
 </head>
 <body>
 	<!-- 页眉 -->
@@ -83,14 +85,20 @@
 	<div id="wrap">
 		<!-- table-responsive -->
 		<div id="bodyer" class="container">
-			<p>hello world!</p>
-			<p>${PostID}</p>
+			<div class="starter-template">
+				<h1>hello world!Title</h1>
+				<p class="lead">
+					Use this document as a way to quickly start any new project.<br>
+					All you get is this text and a mostly barebones HTML document.
+				</p>
+				<p>${PostID}</p>
+			</div>
 		</div>
 	</div>
 	<!-- 页面主体 -->
 
-	
-	
+
+
 	<!-- 页脚 -->
 	<div id="footer">
 		<div class="container">

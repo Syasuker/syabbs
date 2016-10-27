@@ -2,11 +2,6 @@
    css/list.css
  */
 
-body {
-	font-family: "simsun";
-	font-family: "微软雅黑";
-	background-color: #eee;
-}
 
 #bodyer {
   max-width: 768px;
@@ -26,7 +21,7 @@ body {
 	
 }
 
-
+/* 设置超链接的颜色手势图标 */
 tbody a{
 	color: #333;
 	cursor:pointer;
