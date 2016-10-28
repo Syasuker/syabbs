@@ -7,6 +7,7 @@ js/list.js
 
 //MVC分离业务
 
+
 /* MODEL数据 */
 var model = {
 //	假象板块点击修改listmodel中的板块值
@@ -18,27 +19,46 @@ var model = {
 
 /*自动触发*/
 $(function() {
-	//TODO Cookie令牌验证
+
+	//检查是否登录
+	checkLog();
 	
+//	自动加载本版Post列表
+	listPostAction();
+
+});
+
+//检查是否登录方法
+function checkLog() {
+	//TODO Cookie令牌验证
 	var usrName = getCookie("userName");
 	if (usrName!=null && usrName.length>0) {
+		//用户已登录
 		$('#usr').html(usrName+'<b class="caret"></b>');
-		
-		/*$("textarea").removeAttr("readonly");*/
+		/* 登出按钮 */
+		$('#log_out').click(log_outAction);
+//		发帖按钮
+		$('#save_post').click(savePostAction);
 	}else {
 		/*若没有用户登录则点击跳转到登录页面*/
 		/*删除下拉菜单*/
 		$('#usr').next().remove();
 		$('#usr').click(goto_loginAction);
+		
+		//修改发帖按钮跳转到登录界面
+		$('#save_post').click(goto_loginAction);
+		$('#save_post').html('请登录发帖');
+		//锁编辑框为不可编辑
+		um.setDisabled();
+		//隐藏编辑框
+//		um.setHide();
+		//隐藏整个发帖功能
+//		$('#post').hide();
 	}
-	
-	/* 登出按钮 */
-	$('#log_out').click(log_outAction);
-//	自动加载本版Post列表
-	listPostAction();
-//	发帖按钮
-	$('#save_post').click(savePostAction);
-});
+}
+
+
+
 
 
 //发帖控制器
