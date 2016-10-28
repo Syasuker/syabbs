@@ -3,4 +3,6 @@
    css/post.css
 */
 
-
+hr {
+    border-top: 1px solid #111;
+}

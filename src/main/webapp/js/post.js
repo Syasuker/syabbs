@@ -49,7 +49,7 @@ function paintPost() {
 //	content.empty();
 	
 	$('#title').html('<h1 id="title">'+post.title+'</h1>');
-	$('.lead').html('<p class="lead">'+usr.name+'|'+post.lastModifyTime+'</p>');
+	$('.lead').html('<p class="lead text-right"><strong>'+usr.name+'|</strong>'+post.lastModifyTime+'</p>');
 	$('#content').html('<div id="content">'+post.body+'</div>');
 }
 
