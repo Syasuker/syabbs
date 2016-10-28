@@ -12,16 +12,33 @@ var model = {
 
 /*自动触发*/
 $(function() {
-	console.log('看帖回帖页面');
+//	console.log('看帖回帖页面');
+	//检查是否登录
+	var flag = checkLog();
+	if (flag==true) {
+//		发帖按钮
+		$('#save_post').click(commentPostAction);
+	}
 	
 //	自动触发加载Post孔子获取;
 	loadPostAction();
 });
 
 
+function commentPostAction() {
+	console.log('commentPostAction');
+}
+
+
+
+
+
+
+
+
 /*加载Post控制器方法*/
 function loadPostAction() {
-	console.log('loadPostAction');
+//	console.log('loadPostAction');
 	//获取数据
 	var post = result.data;
 	var usr = post.user;
