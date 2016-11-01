@@ -42,6 +42,12 @@ public class PostServiceImpl implements PostService {
 		if (user==null) {
 			throw new ServiceException("用户没有权限");
 		}
+		
+		//MySQL要求限制 TEXT L+2个字节(+2是ROM签名)，其中L < 2的16次方 FFFF
+		if (body.getBytes().length >= 0xFFFF+2) {
+			throw new ServiceException("请不要大于2万个字----0xFFFF+2");
+		}
+		
 		Post post = new Post();
 		String post_id = UUID.randomUUID().toString();
 //		Long now = System.currentTimeMillis();
