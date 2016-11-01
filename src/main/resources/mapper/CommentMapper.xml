@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<!-- 命名空间 -->
+<mapper namespace="cn.sya.bbs.dao.CommentDao">
+
+    <resultMap type="cn.sya.bbs.entity.Comment" id="postResultMap">
+        <result property="post_id" column="post_id"/>
+        <result property="plate_id" column="plate_id"/>
+        <result property="status" column="post_status"/>
+        <result property="title" column="post_title"/>
+        <result property="body" column="post_body"/>
+        <result property="createTime" column="post_create_time"/>
+        <result property="lastModifyTime" column="post_last_modify_time"/>
+        
+        <association property="user" column="user_id" javaType="cn.sya.bbs.entity.User">
+            <id property="id" column="user_id"/>
+            <result property="name" column="user_name"/>
+            <result property="password" column="user_password"/>
+            <result property="mobile" column="user_mobile"/>
+            <result property="token" column="user_token"/>
+        </association>
+        
+    </resultMap>
+
+	<insert id="savePost" parameterType="cn.sya.bbs.entity.Post">
+		INSERT
+		INTO 
+			cn_post
+			(post_id,plate_id,user_id,post_status,post_title,post_body,post_create_time,post_last_modify_time)
+		VALUES
+			(#{post_id},#{plate_id},#{user.id},#{status},#{title},#{body},#{createTime},#{lastModifyTime})
+	</insert>
+	
+	<!-- 
+	| post_id                              
+	| plate_id 
+	| user_id                              
+	| post_status 
+	| post_title              
+	| post_body           
+	| post_create_time 
+	| post_last_modify_time 
+	
+	
+	 * @param post_id
+	 * @param user_id
+	 * @param plate_id
+	 * @param status
+	 * @param title
+	 * @param body
+	 * @param createTime
+	 * @param lastModifyTime
+	 -->
+	 
+	<select id="findPostById" parameterType="string"
+		resultMap="postResultMap">
+		SELECT
+			p.post_id,
+			p.plate_id,
+			p.user_id ,
+			p.post_status,
+			p.post_title,
+			p.post_body ,
+			p.post_create_time ,
+			p.post_last_modify_time ,
+			u.user_name,
+			u.user_mobile,
+			u.user_password,
+			u.user_token,
+			u.user_id
+		FROM
+			cn_post p 
+			LEFT OUTER JOIN cn_user u 
+			ON p.user_id = u.user_id 
+		WHERE
+			p.post_id = #{post_id};
+	</select>
+	
+	
+	<!-- 
+	| id                                   
+	| plate 
+	| title                   
+	| body                
+	| modTime       
+	| author 
+	-->
+	<select id="listPostByPlateID" parameterType="String" resultType="java.util.Map">
+	    SELECT 
+	    	p.post_id AS id,
+			p.plate_id AS plate,
+			p.post_title AS title,
+			p.post_body AS body,
+			p.post_last_modify_time AS modTime,
+			u.user_name AS author
+	    FROM 
+	        cn_post p 
+			LEFT OUTER JOIN cn_user u 
+			ON p.user_id = u.user_id 
+	    WHERE 
+	        p.plate_id=#{plate_id} AND p.post_status="1"
+	    ORDER BY 
+	        p.post_last_modify_time DESC
+	</select>
+	
+<!-- 
+	<select id="findUserById" parameterType="string"
+		resultType="cn.tedu.note.entity.User">
+		SELECT
+		cn_user_id as id,
+		cn_user_name as name,
+		cn_user_password as password,
+		cn_user_token as token,
+		cn_user_nick as nick
+		FROM
+		cn_user
+		WHERE
+		cn_user_id = #{id}
+	</select>
+	<update id="updataUser" parameterType="cn.tedu.note.entity.User">
+		UPDATE
+			cn_user
+		SET
+			cn_user_id=#{id},
+			cn_user_name=#{name},
+			cn_user_password=#{password},
+			cn_user_token=#{token},
+			cn_user_nick=#{nick}
+		WHERE
+			cn_user_id = #{id}
+	</update>
+
+	<delete id="deleteUser" parameterType="string">
+		DELETE FROM cn_user WHERE
+		cn_user_id = #{id}
+	</delete>
+ -->	
+</mapper>
