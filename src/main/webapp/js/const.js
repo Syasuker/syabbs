@@ -44,6 +44,10 @@ var baseUrl = getRootPath();
 var SUCCESS=0;
 var ERROR=1;
 
+/*Cookie变量*/
+var CookiePath="/syabbs";
+//默认三天3*24小时
+var CookieTime=3*24;
 
 
 
@@ -85,9 +89,9 @@ function checkLog() {
 
 /*删除Cookied的登出方法*/
 function log_outAction() {
-	delCookie("userId");
-	delCookie("userName");
-	delCookie("token");
+	delCookie("userId",CookiePath);
+	delCookie("userName",CookiePath);
+//	delCookie("token");
 	window.location.reload();
 }
 

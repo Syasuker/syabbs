@@ -45,11 +45,9 @@ function getCookie(objName){//获取指定名称的cookie的值
 
  
 
-function addCookie(objName,objValue,objHours,objPath){      //添加cookie
+function addCookie(objName,objValue,objHours){      //添加cookie
 
     var str = objName + "=" + escape(objValue);
-
-    str += "; path="+objPath;                        //设置路径默认为根路径
 
     if(objHours > 0){                               //为0时不设定过期时间，浏览器关闭时cookie自动消失
 
@@ -67,6 +65,22 @@ function addCookie(objName,objValue,objHours,objPath){      //添加cookie
 
 }
 
+ 
+
+function SetCookie(name,value)//两个参数，一个是cookie的名子，一个是值
+
+{
+
+    var Days = 30; //此 cookie 将被保存 30 天
+
+    var exp = new Date();    //new Date("December 31, 9998");
+
+    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+
+}
+
 function getCookie(name)//取cookies函数        
 
 {
@@ -79,41 +93,13 @@ function getCookie(name)//取cookies函数
 
 }
 
-function delCookie(name,path)//删除cookie
+function delCookie(name)//删除cookie
 {
     var exp = new Date();
     exp.setTime(exp.getTime() - 1);
     var cval=getCookie(name);
     if(cval!=null) {
-    	document.cookie= name + "="+cval+";expires="+exp.toGMTString()+"; path=" +path;
+    	document.cookie= name + "="+cval+";expires="+exp.toGMTString();
     }
 }
 
-
-
-
-/*快速fastCookie方法默认路径为/根路径      默认失效时间为30天  若不设置路径则会使用当前路径会导致无法删除?????????*/
-
-function fastDelCookie(name)//删除cookie
-{
-	var exp = new Date();
-	exp.setTime(exp.getTime() - 1);
-	var cval=getCookie(name);
-	if(cval!=null) {
-		document.cookie= name + "="+cval+";expires="+exp.toGMTString()+"; path=/";
-	}
-}
-
-function fastSetCookie(name,value)//两个参数，一个是cookie的名子，一个是值
-{
-	
-	var Days = 30; //此 cookie 将被保存 30 天
-	var path = "/";        //Cookie默认路径为跟目录
-	
-	var exp = new Date();    //new Date("December 31, 9998");
-	
-	exp.setTime(exp.getTime() + Days*24*60*60*1000);
-	
-	document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";path=/";
-	
-}

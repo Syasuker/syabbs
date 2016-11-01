@@ -120,8 +120,8 @@ function loginAction() {
 //			console.log(result);
 			if (result.state==SUCCESS) {
 				var user = result.data;
-				SetCookie("userId", user.id);
-				SetCookie("userName", user.name);
+				addCookie("userId", user.id,CookieTime,CookiePath);
+				addCookie("userName", user.name,CookieTime,CookiePath);
 				/*跳转页面*/
 				window.location.href=baseUrl+"/list.html?"+new Date().getTime();
 			}else {
