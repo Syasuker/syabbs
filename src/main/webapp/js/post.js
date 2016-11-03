@@ -21,7 +21,7 @@ $(function() {
 	}
 	
 //	自动触发加载Post孔子获取;
-	loadPostAction();
+//	loadPostAction();
 });
 
 
@@ -69,9 +69,4 @@ function paintPost() {
 	$('.lead').html('<p class="lead text-right"><strong>'+usr.name+'|</strong>'+post.lastModifyTime+'</p>');
 	$('#content').html('<div id="content">'+post.body+'</div>');
 }
-
-
-
-
-
 

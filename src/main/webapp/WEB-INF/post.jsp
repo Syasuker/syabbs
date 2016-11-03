@@ -90,13 +90,12 @@
 		<!-- table-responsive -->
 		<div id="bodyer" class="container">
 			<div class="starter-template">
-				<h1 id="title">hello world!Title</h1>
-				<p class="lead">
-					Use this document as a way to quickly start any new project.<br>
-					All you get is this text and a mostly barebones HTML document.
+				<h1 id="title">${post.title}</h1>
+				<p class="lead text-right">
+					<strong>${post.user.name} |</strong>${post.lastModifyTime}
 				</p>
 				<hr>
-				<div id="content">贴子</div>
+				<div id="content">${post.body}</div>
 			</div>
 			
 			

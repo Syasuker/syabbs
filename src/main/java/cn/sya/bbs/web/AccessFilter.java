@@ -53,15 +53,16 @@ public class AccessFilter implements Filter{
 		System.out.println("rootPath:"+rootPath);
 		
 		
-		//对PostID重定向
-		//http://localhost:8080/syabbs/postID/5989b6b0-a440-4cb4-98ee-9be90962e611
+		//对PostID转发
+		//当前路径http://localhost:8080/syabbs/postID/5989b6b0-a440-4cb4-98ee-9be90962e611
+		//目标路径http://localhost:8080/syabbs/post/post.sya?PostID=5989b6b0-a440-4cb4-98ee-9be90962e611
 //		System.out.println(url.substring(0,url.lastIndexOf("/")));
 		if (url.substring(0,url.lastIndexOf("/")).endsWith("postID")) {
 			String postID = url.substring(url.lastIndexOf("/")+1, url.length());
 			System.out.println(postID);
 			//实现转发
-			//转发的基础路径是当前页面的上级
-			String uri = "../post/post.sya?PostID="+postID;
+			//转发的基础路径是当前路径;加斜线是根目录也就是rootPath;
+			String uri = "/post/post.sya?PostID="+postID;
 			System.out.println(uri);
 			req.getRequestDispatcher(uri).forward(req, resp);
 //			String getPost = "http://localhost:8080/syabbs/post/post.sya?PostID=5989b6b0-a440-4cb4-98ee-9be90962e611";

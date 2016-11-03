@@ -54,6 +54,7 @@ public class PostController {
 	@RequestMapping("/post.sya")
 	public String showPost(HttpServletRequest request){
 //		System.out.println("showPost");
+//		System.out.println("==================getRequestURL:"+request.getRequestURL().toString());
 		String PostID = request.getParameter("PostID");
 		
 		Post post = postService.loadPost(PostID);
