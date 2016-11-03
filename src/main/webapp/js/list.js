@@ -122,7 +122,7 @@ function paintPosts(){
 	//清空tbody
 	tbody.empty();
 	
-	var url = baseUrl+'/post/post.sya?PostID=';
+	var url = baseUrl+'/postID/';
 	
 	for (var i = 0; i < posts.length; i++) {
 		var post = posts[i];

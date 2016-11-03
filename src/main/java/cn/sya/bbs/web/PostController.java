@@ -63,6 +63,7 @@ public class PostController {
 		String jsonResult = JackSon.toJson(new JsonResult<Post>(post));
 		
 		request.setAttribute("jsonResult", jsonResult);
+		request.setAttribute("post", post);
 		return "post";
 	}
 

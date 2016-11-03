@@ -29,9 +29,7 @@
 <script type="text/javascript" src="../js/post.js"></script>
 
 
-
-
-<title>贴子&回复</title>
+<title>${post.title} - SyaBBS &copy Power By Syasuker</title>
 </head>
 <body>
 	<!-- 页眉 -->
