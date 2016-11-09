@@ -7,7 +7,7 @@ public class Comment implements Serializable{
 	
 	private String id;
 	private String postID;
-	private String userID;
+	private User user;
 	private String status;
 	private String body;
 	private String createTime;
@@ -15,12 +15,21 @@ public class Comment implements Serializable{
 
 	public Comment() {	}
 
-	public Comment(String id, String postID, String userID, String status, String body, String createTime,
+	/**
+	 * @param id
+	 * @param postID
+	 * @param user
+	 * @param status
+	 * @param body
+	 * @param createTime
+	 * @param modifyTime
+	 */
+	public Comment(String id, String postID, User user, String status, String body, String createTime,
 			String modifyTime) {
 		super();
 		this.id = id;
 		this.postID = postID;
-		this.userID = userID;
+		this.user = user;
 		this.status = status;
 		this.body = body;
 		this.createTime = createTime;
@@ -43,12 +52,12 @@ public class Comment implements Serializable{
 		this.postID = postID;
 	}
 
-	public String getUserID() {
-		return userID;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserID(String userID) {
-		this.userID = userID;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getStatus() {
@@ -110,9 +119,10 @@ public class Comment implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", postID=" + postID + ", userID=" + userID + ", status=" + status + ", body="
-				+ body + ", createTime=" + createTime + ", modifyTime=" + modifyTime + "]";
+		return "Comment [id=" + id + ", postID=" + postID + ", user=" + user + ", status=" + status + ", body=" + body
+				+ ", createTime=" + createTime + ", modifyTime=" + modifyTime + "]";
 	}
+	
 	
 	
 }

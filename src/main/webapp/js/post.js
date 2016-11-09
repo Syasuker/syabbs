@@ -8,6 +8,7 @@
 var model = {
     post:{},
     user:{},
+    comments:[]
 };
 
 /*自动触发*/
@@ -17,16 +18,45 @@ $(function() {
 	var flag = checkLog();
 	if (flag==true) {
 //		发帖按钮
-		$('#save_post').click(commentPostAction);
+		$('#send_comment').click(commentPostAction);
 	}
-	
-//	自动触发加载Post孔子获取;
-//	loadPostAction();
+	//自动加载贴子控制器
+	loadPostAction();
 });
 
-
+/*回帖控制器*/
 function commentPostAction() {
-	console.log('commentPostAction');
+//	console.log('commentPostAction');
+	var post = model.post;
+	
+	
+	//使用myEditorAPI getContent获取内容
+	var content = um.getContent();
+	if (!um.hasContents()) {
+		alert("回帖内容不能为空");
+	}
+	
+	//body, postID, userID
+	var data = {'postID':post.post_id,'userID':getCookie('userId'),'body':content};
+	
+	$.ajax({
+		url:baseUrl+"/comment/send.sya",
+		method : 'POST',
+		dataType: 'JSON',
+		data : data,
+		success : function(result) {
+			if (result.state==SUCCESS) {
+				console.log('回帖成功');
+				var lastComment = result.data;
+				console.log(lastComment);
+				//清空编辑器
+				um.setContent('');
+			}else {
+				alert(result.message);
+			}
+		}
+	});
+	
 }
 
 
@@ -46,7 +76,7 @@ function loadPostAction() {
 	model.post = post;
 	model.user = usr;
 	//刷写贴子
-	paintPost();
+//	paintPost();
 	
 }
 

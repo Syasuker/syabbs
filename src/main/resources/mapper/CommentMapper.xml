@@ -6,13 +6,12 @@
 <mapper namespace="cn.sya.bbs.dao.CommentDao">
 
     <resultMap type="cn.sya.bbs.entity.Comment" id="postResultMap">
-        <result property="post_id" column="post_id"/>
-        <result property="plate_id" column="plate_id"/>
-        <result property="status" column="post_status"/>
-        <result property="title" column="post_title"/>
-        <result property="body" column="post_body"/>
-        <result property="createTime" column="post_create_time"/>
-        <result property="lastModifyTime" column="post_last_modify_time"/>
+        <result property="id" column="comment_id"/>
+        <result property="postID" column="post_id"/>
+        <result property="status" column="comment_status"/>
+        <result property="body" column="comment_body"/>
+        <result property="createTime" column="comment_create_time"/>
+        <result property="modifyTime" column="comment_last_modify_time"/>
         
         <association property="user" column="user_id" javaType="cn.sya.bbs.entity.User">
             <id property="id" column="user_id"/>
@@ -21,37 +20,34 @@
             <result property="mobile" column="user_mobile"/>
             <result property="token" column="user_token"/>
         </association>
-        
     </resultMap>
 
-	<insert id="savePost" parameterType="cn.sya.bbs.entity.Post">
+	<insert id="saveComment" parameterType="cn.sya.bbs.entity.Comment">
 		INSERT
 		INTO 
-			cn_post
-			(post_id,plate_id,user_id,post_status,post_title,post_body,post_create_time,post_last_modify_time)
+			cn_comment
+			(comment_id,post_id,user_id,comment_status,comment_body,comment_create_time,comment_last_modify_time)
 		VALUES
-			(#{post_id},#{plate_id},#{user.id},#{status},#{title},#{body},#{createTime},#{lastModifyTime})
+			(#{id},#{postID},#{user.id},#{status},#{body},#{createTime},#{modifyTime})
 	</insert>
 	
 	<!-- 
-	| post_id                              
-	| plate_id 
-	| user_id                              
-	| post_status 
-	| post_title              
-	| post_body           
-	| post_create_time 
-	| post_last_modify_time 
-	
-	
-	 * @param post_id
-	 * @param user_id
-	 * @param plate_id
+	 * @param id
+	 * @param postID
+	 * @param user
 	 * @param status
-	 * @param title
 	 * @param body
 	 * @param createTime
-	 * @param lastModifyTime
+	 * @param modifyTime
+	 
+comment_id
+post_id
+user_id
+comment_status
+comment_body
+comment_create_time
+comment_last_modify_time
+
 	 -->
 	 
 	<select id="findPostById" parameterType="string"
@@ -80,29 +76,34 @@
 	
 	
 	<!-- 
-	| id                                   
-	| plate 
-	| title                   
+	comment_id
+post_id
+user_id
+comment_status
+comment_body
+comment_create_time
+comment_last_modify_time
+	
+	| id                                            
 	| body                
 	| modTime       
 	| author 
 	-->
-	<select id="listPostByPlateID" parameterType="String" resultType="java.util.Map">
+	<select id="listCommnetByPostID" parameterType="String" resultType="java.util.Map">
 	    SELECT 
-	    	p.post_id AS id,
-			p.plate_id AS plate,
-			p.post_title AS title,
-			p.post_body AS body,
-			p.post_last_modify_time AS modTime,
+	        c.comment_id AS id,
+	    	<!-- c.post_id AS post_id, -->
+			c.comment_body AS body,
+			c.comment_last_modify_time AS modTime,
 			u.user_name AS author
 	    FROM 
-	        cn_post p 
+	        cn_comment c 
 			LEFT OUTER JOIN cn_user u 
-			ON p.user_id = u.user_id 
+			ON c.user_id = u.user_id 
 	    WHERE 
-	        p.plate_id=#{plate_id} AND p.post_status="1"
+	        c.post_id=#{post_id} AND c.comment_status="1"
 	    ORDER BY 
-	        p.post_last_modify_time DESC
+	        c.comment_last_modify_time ASC
 	</select>
 	
 <!-- 

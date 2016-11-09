@@ -147,7 +147,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<button type="button" class="btn btn-block btn-primary"
-											id="save_post">回复帖子</button>
+											id="send_comment">回复帖子</button>
 									</div>
 								</div>
 								<!-- 发帖按钮 -->
