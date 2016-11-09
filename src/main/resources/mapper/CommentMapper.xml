@@ -5,7 +5,7 @@
 <!-- 命名空间 -->
 <mapper namespace="cn.sya.bbs.dao.CommentDao">
 
-    <resultMap type="cn.sya.bbs.entity.Comment" id="postResultMap">
+    <resultMap type="cn.sya.bbs.entity.Comment" id="commentResultMap">
         <result property="id" column="comment_id"/>
         <result property="postID" column="post_id"/>
         <result property="status" column="comment_status"/>
@@ -51,7 +51,7 @@ comment_last_modify_time
 	 -->
 	 
 	<select id="findPostById" parameterType="string"
-		resultMap="postResultMap">
+		resultMap="commentResultMap">
 		SELECT
 			p.post_id,
 			p.plate_id,

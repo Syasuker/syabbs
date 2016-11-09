@@ -77,7 +77,7 @@ public class TestPost {
 	public void testloadPost(){
 		PostService postService = applicationContext.getBean("postService", PostService.class);
 		System.out.println(postService);
-		Post post = postService.loadPost("d74c39c3-3cea-4007-b4d5-300d8a179a9e");
+		Post post = postService.loadPost("f2a3b66a-52c4-4f61-9aca-17f70a5576da");
 		System.out.println(post);
 	}
 	@Test

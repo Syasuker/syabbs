@@ -40,7 +40,7 @@
 		SELECT
 		    user_id as id,
 		    user_name as name,
-		    user_password as password,
+		    <!-- user_password as password, -->
 		    user_token as token,
 		    user_mobile as mobile
 		FROM
