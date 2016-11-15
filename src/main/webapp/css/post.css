@@ -2,16 +2,30 @@
    Post的样式
    css/post.css
 */
-
 hr {
-    border-top: 1px solid #8a6d3b;
+	border-top: 1px solid #8a6d3b;
 }
+
 .dash {
-    border-top: 1px dashed #8a6d3b;
-    margin-top: -10px;
+	border-top: 1px dashed #8a6d3b;
+	margin-top: -10px;
 }
 
 #send_comment {
-    margin-top: 10px;
-    margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.show-grid {
+	margin-bottom: 15px;
+/* 	margin: 0px; */
+}
+
+.show-grid [class^="col-"] {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #eee;
+	border: 1px solid #ddd;
+	background-color: rgba(86, 61, 124, .15);
+	border: 1px solid rgba(86, 61, 124, .2);
 }

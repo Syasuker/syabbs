@@ -64,25 +64,23 @@ function commentPostAction() {
 	
 }
 /*
-<hr>
-<p class="lead text-right">
-<strong>zhenji |</strong>2016-10-27 14:25:54
-</p>
-<hr>
+				<div class="row show-grid">
+					<div class="col-md-2">曹操 </br> 2016-11-15 16:40:46</div>
+					<div class="col-md-10">
+					</div>
+				</div>
 回帖VIEW 显示
-
-<div></div>
 TODO 设计回帖界面 目前构思是做一个table
 */
 function paintComment() {
 	console.log('回帖刷写VIEW');
 	var currentComment = model.comments[model.comments.length-1];
 	console.log(currentComment);
-	var commentHTML = '<p></p>'+
-	                  '<p class="text-left">'+
-	                        '<strong>'+currentComment.user.name+' :</strong>'+currentComment.modifyTime+'</p>'+
-	                  '<hr class="dash">'+
-	                  '<div class="text-center">'+currentComment.body+'</div>';
+	var commentHTML = 
+		             '<div class="row show-grid">'+
+	                 '<div class="col-md-2"><strong>'+currentComment.user.name+' :</strong></br>'+currentComment.modifyTime+'</div>'+
+	                 '<div class="col-md-10">'+currentComment.body+'</div>'+
+	                 '</div>';
 	
 	$('.starter-template').append(commentHTML);
 }

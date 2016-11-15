@@ -96,7 +96,17 @@
 				</p>
 				<hr>
 				<div id="content">${post.body}</div>
-				<hr>
+				<div class="row show-grid">
+					<div class="col-md-2"><strong>曹操</strong></br> 2016-11-15 16:40:46</div>
+					<div class="col-md-10">
+						<p>what fuck of my see!what fuck of my see!what fuck of my
+							see!what fuck of my see!what fuck of my see!what fuck of my
+							see!what fuck of my see!</p>
+						<p>what fuck of my see!what fuck of my see!what fuck of my
+							see!what fuck of my see!what fuck of my see!what fuck of my
+							see!what fuck of my see!</p>
+					</div>
+				</div>
 			</div>
 			
 			
