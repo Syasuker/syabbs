@@ -96,6 +96,7 @@
 				</p>
 				<hr>
 				<div id="content">${post.body}</div>
+				<hr>
 			</div>
 			
 			

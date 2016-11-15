@@ -18,3 +18,5 @@ SpringMVC+Mybatis+bootstrap
 拟将贴子页写成静态页面做SEO优化;不出现get请求的标准写法;√
 翻页使用#page-1等来实现
 cn/sya/bbs/service/CommentServiceImpl.java   TODO
+
+TODO 设计回帖界面 目前构思是做一个table   然后姓名和内容做成表格的不同部分参考[自由]等通用论坛

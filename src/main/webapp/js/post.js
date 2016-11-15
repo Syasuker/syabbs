@@ -48,9 +48,14 @@ function commentPostAction() {
 			if (result.state==SUCCESS) {
 				console.log('回帖成功');
 				var lastComment = result.data;
-				console.log(lastComment);
+//				console.log(lastComment);
 				//清空编辑器
 				um.setContent('');
+				var ary = [lastComment];
+				//将回帖的数据存入model
+				model.comments = model.comments.concat(ary);
+				//加载即时显示回帖方法
+				paintComment();
 			}else {
 				alert(result.message);
 			}
@@ -58,11 +63,29 @@ function commentPostAction() {
 	});
 	
 }
+/*
+<hr>
+<p class="lead text-right">
+<strong>zhenji |</strong>2016-10-27 14:25:54
+</p>
+<hr>
+回帖VIEW 显示
 
-
-
-
-
+<div></div>
+TODO 设计回帖界面 目前构思是做一个table
+*/
+function paintComment() {
+	console.log('回帖刷写VIEW');
+	var currentComment = model.comments[model.comments.length-1];
+	console.log(currentComment);
+	var commentHTML = '<p></p>'+
+	                  '<p class="text-left">'+
+	                        '<strong>'+currentComment.user.name+' :</strong>'+currentComment.modifyTime+'</p>'+
+	                  '<hr class="dash">'+
+	                  '<div class="text-center">'+currentComment.body+'</div>';
+	
+	$('.starter-template').append(commentHTML);
+}
 
 
 

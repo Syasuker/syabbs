@@ -6,3 +6,12 @@
 hr {
     border-top: 1px solid #8a6d3b;
 }
+.dash {
+    border-top: 1px dashed #8a6d3b;
+    margin-top: -10px;
+}
+
+#send_comment {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

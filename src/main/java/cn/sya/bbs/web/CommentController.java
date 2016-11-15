@@ -16,7 +16,7 @@ public class CommentController {
 	@Autowired
 	private CommentService commentService;
 	public CommentController() {	}
-	
+//	comment/send.sya
 	@RequestMapping("/send.sya")
 	@ResponseBody
 	public JsonResult<Comment> sendComment(HttpServletRequest request){
