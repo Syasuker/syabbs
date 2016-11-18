@@ -69,7 +69,7 @@ function commentPostAction() {
 					<div class="col-md-10">
 					</div>
 				</div>
-回帖VIEW 显示
+回帖VIEW 回帖直接显示到最后
 TODO 设计回帖界面 目前构思是做一个table
 */
 function paintComment() {
@@ -87,19 +87,33 @@ function paintComment() {
 
 
 
+
 /*加载Post控制器方法*/
 function loadPostAction() {
 //	console.log('loadPostAction');
-	//获取数据
-	var post = result.data;
-	var usr = post.user;
-	//将输入存入model
-	model.post = post;
-	model.user = usr;
-	//刷写贴子
-//	paintPost();
+	if (result.state==SUCCESS) {
+		//获取数据
+		var post = result.data.post;
+		var comments = result.data.comments;
+		//
+		var usr = post.user;
+		//将输入存入model
+		model.post = post;
+		model.user = usr;
+		model.comments = comments;
+		//刷写贴子
+//		paintPost();
+		//刷写回帖列表
+		paintComments();
+	}else {
+		alert(result.message);
+	}
+
 	
 }
+
+
+
 
 
 /*VIEW 刷写贴子方法*/

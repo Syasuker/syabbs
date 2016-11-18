@@ -2,6 +2,8 @@ package cn.sya.bbs.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +72,15 @@ public class CommentServiceImpl implements CommentService {
 		//将评论及时显示
 		//TODO 数据库查询返回
 		return comment;
+	}
+
+	public List<Map<String, Object>> listCommnet(String postID) {
+    	if (postID==null||postID.trim().isEmpty()) {
+			throw new ServiceException("贴子ID不能为空");
+		}
+    	    	
+    	List<Map<String, Object>> comments = commentDao.listCommnetByPostID(postID);
+		return comments;
 	}
 
 }
