@@ -123,10 +123,10 @@
 			<div id="comments">
 			<!-- 
 				<div class="row show-grid">
-					<div class="col-md-2">
+					<div class="col-md-3">
 						<strong>曹操</strong></br> 2016-11-15 16:40:46
 					</div>
-					<div class="col-md-10">
+					<div class="col-md-9">
 						<p>what fuck of my see!what fuck of my see!what fuck of my
 							see!what fuck of my see!what fuck of my see!what fuck of my
 							see!what fuck of my see!</p>

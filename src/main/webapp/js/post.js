@@ -34,6 +34,7 @@ function commentPostAction() {
 	var content = um.getContent();
 	if (!um.hasContents()) {
 		alert("回帖内容不能为空");
+		return;
 	}
 	
 	//body, postID, userID
@@ -79,8 +80,8 @@ function paintComment() {
 //	console.log(currentComment);
 	var commentHTML = 
 		             '<div class="row show-grid" id="'+currentComment.id+'">'+
-	                 '<div class="col-md-2"><strong>'+currentComment.user.name+' :</strong></br>'+currentComment.modifyTime+'</div>'+
-	                 '<div class="col-md-10">'+currentComment.body+'</div>'+
+	                 '<div class="col-md-3"><strong>'+currentComment.user.name+' :</strong></br>'+currentComment.modifyTime+'</div>'+
+	                 '<div class="col-md-9">'+currentComment.body+'</div>'+
 	                 '</div>';
 	
 	$('#comments').append(commentHTML);
@@ -122,8 +123,8 @@ function paintComments() {
 		var comment = comments[i];
 		var commentHTML = 
 			'<div class="row show-grid" id="'+comment.id+'">'+
-			'<div class="col-md-2"><strong>'+comment.author+' :</strong></br>'+comment.modTime+'</div>'+
-			'<div class="col-md-10">'+comment.body+'</div>'+
+			'<div class="col-md-3"><strong>'+comment.author+' :</strong></br>'+comment.modTime+'</div>'+
+			'<div class="col-md-9">'+comment.body+'</div>'+
 			'</div>';
 
 		$('#comments').append(commentHTML);

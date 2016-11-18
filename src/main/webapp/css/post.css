@@ -18,7 +18,9 @@ hr {
 
 .show-grid {
 	margin-bottom: 15px;
-/* 	margin: 0px; */
+	margin-right: 2px;
+	margin-left: 2px;
+	/* 	margin: 0px; */
 }
 
 .show-grid [class^="col-"] {
