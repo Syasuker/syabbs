@@ -25,3 +25,5 @@ cn/sya/bbs/service/CommentServiceImpl.java   TODO
 美化错误弹窗;
 当用户是从页面登录;登录成功后应该跳转回登陆前页面
 贴子搜索功能====>简单实现
+List页面加载过慢或许考虑重构?????
+session写个缓存;如果再次读取就不再读取了
