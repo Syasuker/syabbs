@@ -10,6 +10,8 @@ body {
 	font-family: "simsun";
 	font-family: "微软雅黑";
 	background-color: #eee;
+	/* 给top nav bar留出空间 */
+	padding-top: 70px;
 }
 
 /* 超链接使用小手图标 */
