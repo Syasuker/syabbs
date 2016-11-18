@@ -33,7 +33,7 @@
 </head>
 <body>
 	<!-- 页眉 -->
-	<div class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -96,17 +96,7 @@
 				</p>
 				<hr>
 				<div id="content">${post.body}</div>
-				<div class="row show-grid">
-					<div class="col-md-2"><strong>曹操</strong></br> 2016-11-15 16:40:46</div>
-					<div class="col-md-10">
-						<p>what fuck of my see!what fuck of my see!what fuck of my
-							see!what fuck of my see!what fuck of my see!what fuck of my
-							see!what fuck of my see!</p>
-						<p>what fuck of my see!what fuck of my see!what fuck of my
-							see!what fuck of my see!what fuck of my see!what fuck of my
-							see!what fuck of my see!</p>
-					</div>
-				</div>
+
 			</div>
 			
 			
@@ -128,6 +118,26 @@
 					</ul>
 			</div>
 			<!-- 翻页部分 -->
+			
+			<!-- 评论部分 -->
+			<div id="comments">
+			<!-- 
+				<div class="row show-grid">
+					<div class="col-md-2">
+						<strong>曹操</strong></br> 2016-11-15 16:40:46
+					</div>
+					<div class="col-md-10">
+						<p>what fuck of my see!what fuck of my see!what fuck of my
+							see!what fuck of my see!what fuck of my see!what fuck of my
+							see!what fuck of my see!</p>
+						<p>what fuck of my see!what fuck of my see!what fuck of my
+							see!what fuck of my see!what fuck of my see!what fuck of my
+							see!what fuck of my see!</p>
+					</div>
+				</div>
+		    -->
+			</div>
+			<!-- 评论部分 -->
 
 			<!-- 回帖部分 -->
 			<div id="post">

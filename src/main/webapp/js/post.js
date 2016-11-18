@@ -73,21 +73,22 @@ function commentPostAction() {
 TODO 设计回帖界面 目前构思是做一个table
 */
 function paintComment() {
-	console.log('回帖刷写VIEW');
+//	console.log('回帖刷写VIEW');
+	//将刚刚回复的贴子添加到model回帖列表的最后
 	var currentComment = model.comments[model.comments.length-1];
-	console.log(currentComment);
+//	console.log(currentComment);
 	var commentHTML = 
-		             '<div class="row show-grid">'+
+		             '<div class="row show-grid" id="'+currentComment.id+'">'+
 	                 '<div class="col-md-2"><strong>'+currentComment.user.name+' :</strong></br>'+currentComment.modifyTime+'</div>'+
 	                 '<div class="col-md-10">'+currentComment.body+'</div>'+
 	                 '</div>';
 	
-	$('.starter-template').append(commentHTML);
+	$('#comments').append(commentHTML);
 }
 
 
 
-
+/* js/post.js */
 /*加载Post控制器方法*/
 function loadPostAction() {
 //	console.log('loadPostAction');
@@ -112,7 +113,23 @@ function loadPostAction() {
 	
 }
 
+function paintComments() {
+//	console.log('paintComments');
+	//获取comment数组
+	var comments = model.comments;
+	//循环取出
+	for (var i = 0; i < comments.length; i++) {
+		var comment = comments[i];
+		var commentHTML = 
+			'<div class="row show-grid" id="'+comment.id+'">'+
+			'<div class="col-md-2"><strong>'+comment.author+' :</strong></br>'+comment.modTime+'</div>'+
+			'<div class="col-md-10">'+comment.body+'</div>'+
+			'</div>';
 
+		$('#comments').append(commentHTML);
+	}
+
+}
 
 
 

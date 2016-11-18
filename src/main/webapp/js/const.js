@@ -73,7 +73,10 @@ function checkLog() {
 		
 		//修改发帖按钮跳转到登录界面
 		$('#save_post').click(goto_loginAction);
+		$('#send_comment').click(goto_loginAction);
+		//有时间就重构 TODO
 		$('#save_post').html('请登录');
+		$('#send_comment').html('请登录');
 		//锁编辑框为不可编辑
 		um.setDisabled();
 		//隐藏编辑框
