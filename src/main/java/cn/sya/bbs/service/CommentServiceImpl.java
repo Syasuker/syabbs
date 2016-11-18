@@ -35,7 +35,9 @@ public class CommentServiceImpl implements CommentService {
 		if (body.getBytes().length >= 0xFFFF+2) {
 			throw new ServiceException("请不要大于2万个字----0xFFFF+2");
 		}
-		
+		if (body==null && body.trim().isEmpty()) {
+			throw new ServiceException("输入内容不能为空");
+		}
 		User user = null;
 		try {
 			user = userDao.findUserById(userID);
