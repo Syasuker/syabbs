@@ -27,3 +27,5 @@ cn/sya/bbs/service/CommentServiceImpl.java   TODO
 贴子搜索功能====>简单实现
 List页面加载过慢或许考虑重构?????
 session写个缓存;如果再次读取就不再读取了
+
+思考:使用JSP是否不利于给手机APP提供接口;或许JSON统一后端接口是比较不错的选择;
