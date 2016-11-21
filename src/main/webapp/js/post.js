@@ -79,9 +79,9 @@ function paintComment() {
 	var currentComment = model.comments[model.comments.length-1];
 //	console.log(currentComment);
 	var commentHTML = 
-		             '<div class="row show-grid" id="'+currentComment.id+'">'+
+		             '<div class="row show-grid" comment_id="'+currentComment.id+'">'+
 	                 '<div class="col-md-3"><strong>'+currentComment.user.name+' :</strong></br>'+currentComment.modifyTime+'</div>'+
-	                 '<div class="col-md-9">'+currentComment.body+'</div>'+
+	                 '<div class="col-md-9 comment_body">'+currentComment.body+'</div>'+
 	                 '</div>';
 	
 	$('#comments').append(commentHTML);
@@ -118,16 +118,23 @@ function paintComments() {
 //	console.log('paintComments');
 	//获取comment数组
 	var comments = model.comments;
+	var comments_HTML = $('#comments');
+	comments_HTML.empty();
+//	设计评论总数
+	/*		<div id="comments_size"><h4 class="text-center">共有9条跟帖评论</h4></div>		*/
+	comments_HTML.append(
+			'<div id="comments_size"><h4 class="text-center">共有'+
+								comments.length+'条跟帖评论</h4></div>');
 	//循环取出
 	for (var i = 0; i < comments.length; i++) {
 		var comment = comments[i];
 		var commentHTML = 
-			'<div class="row show-grid" id="'+comment.id+'">'+
+			'<div class="row show-grid" comment_id="'+comment.id+'">'+
 			'<div class="col-md-3"><strong>'+comment.author+' :</strong></br>'+comment.modTime+'</div>'+
-			'<div class="col-md-9">'+comment.body+'</div>'+
+			'<div class="col-md-9 comment_body">'+comment.body+'</div>'+
 			'</div>';
 
-		$('#comments').append(commentHTML);
+		comments_HTML.append(commentHTML);
 	}
 
 }

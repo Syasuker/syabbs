@@ -118,9 +118,10 @@
 					</ul>
 			</div>
 			<!-- 翻页部分 -->
-			
-			<!-- 评论部分 -->
+
+			<!-- 评论部分 -->			
 			<div id="comments">
+			<div id="comments_size"><h4 class="text-center">共有9条评论</h4></div>
 			<!-- 
 				<div class="row show-grid">
 					<div class="col-md-3">
@@ -138,7 +139,7 @@
 		    -->
 			</div>
 			<!-- 评论部分 -->
-
+			
 			<!-- 回帖部分 -->
 			<div id="post">
 				<aside class="side-right" id='third_side_right'>
@@ -168,7 +169,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<button type="button" class="btn btn-block btn-primary"
-											id="send_comment">回复帖子</button>
+											id="send_comment" ng-click="send_comment()">回复帖子</button>
 									</div>
 								</div>
 								<!-- 发帖按钮 -->
@@ -177,6 +178,9 @@
 				</aside>
 			</div>
 			<!-- 回帖部分 -->
+			
+
+
 			
 		</div>
 	</div>

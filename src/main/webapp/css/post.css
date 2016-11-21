@@ -2,6 +2,15 @@
    Post的样式
    css/post.css
 */
+#content {
+	/* 设置内容的最小高度为300px */
+	min-height: 300px;
+}
+.comment_body {
+	/* 为了美化回帖评论 */
+ 	min-height: 62px; 
+}
+
 hr {
 	border-top: 1px solid #8a6d3b;
 }
@@ -15,7 +24,6 @@ hr {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
 .show-grid {
 	margin-bottom: 15px;
 	margin-right: 2px;
