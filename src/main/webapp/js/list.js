@@ -14,6 +14,12 @@ var model = {
     plateID:1,
     posts:[],
     user:{},
+    /*
+     	添加默认的翻页参数
+      	js/list.js
+    */
+    pageStart:0,
+    pageSize:10
 };
 
 
@@ -30,7 +36,21 @@ $(function() {
 	
 //	自动加载本版Post列表
 	listPostAction();
-
+	
+	//请求记录post总数	来计算页面的总数
+	$('#nextPage').click(function() {
+		var currentPageStart = model.pageStart;
+		//给model中的数据+1
+		model.pageStart = currentPageStart + model.pageSize;
+		listPostAction();
+	});
+	$('#priorPage').click(function() {
+		var currentPageStart = model.pageStart;
+		//给model中的数据+1
+		model.pageStart = currentPageStart - model.pageSize;
+		listPostAction();
+	});
+	
 });
 
 
@@ -89,7 +109,13 @@ function savePostAction() {
 //贴子列表请求控制器
 function listPostAction() {
 //	console.log('listPostAction');
-	var url = baseUrl+'/post/list.sya?plateID='+model.plateID
+	var pageStart = model.pageStart;
+	var pageSize = model.pageSize;
+	/*
+	http://localhost:8080/syabbs/post/list.sya?plateID=1&pageStart=2&pageSize=1
+*/	
+	var url = baseUrl+'/post/list.sya?plateID='+model.plateID+'&pageStart='+pageStart+'&pageSize='+pageSize;
+
 	//请求链接
 	$.getJSON(url,function(result){
 //		判断返回值

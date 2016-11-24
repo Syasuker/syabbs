@@ -32,9 +32,11 @@ public class PostController {
 //	syabbs/post/list.sya
 	@RequestMapping("/list.sya")
 	@ResponseBody
-	public JsonResult<List<Map<String, Object>>> listPost(String plateID){
+	public JsonResult<List<Map<String, Object>>> listPost(String plateID,String pageStart,String pageSize){
 //		System.out.println("listPost Controller");
-		List<Map<String, Object>> posts = postService.listPost(plateID);
+		
+		List<Map<String, Object>> posts = postService.listPost(plateID,pageStart,pageSize);
+		
 		return new JsonResult<List<Map<String, Object>>>(posts);
 	}
 	

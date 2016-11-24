@@ -2,6 +2,7 @@ package cn.sya.bbs.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -80,7 +81,7 @@ public class PostServiceImpl implements PostService {
 		return post;
 	}
 	
-	public List<Map<String, Object>> listPost(String plateID) throws ServiceException {
+	public List<Map<String, Object>> listPost(String plateID,String pageStart,String pageSize) throws ServiceException {
 /*
   	| id                                   
 	| plate 
@@ -89,12 +90,26 @@ public class PostServiceImpl implements PostService {
 	| modTime       
 	| author 
  */
+		Map<String, Object> map= new HashMap<String, Object>();
 		List<Map<String, Object>> posts=null;
 		if (plateID==null||plateID.trim().isEmpty()) {
 			throw new ServiceException("板块ID不能为空");
 		}
+		int start = new Integer(pageStart);
+		int length = new Integer(pageSize);
+		if (start<0) {
+			throw new ServiceException("翻页起始记录不能为负");
+		}
+		if (length<0) {
+			throw new ServiceException("页面长度不能为负");
+		}
+		map.put("plate_id", plateID);
+		//加入分页参数
+		map.put("start", start);
+		map.put("length", length);
 		
-		posts = postDao.listPostByPlateID(plateID);
+		posts = postDao.listPostByPlateID(map);
+		
 		if (posts==null) {
 			throw new ServiceException("板块不存在");
 		}

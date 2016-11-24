@@ -28,7 +28,7 @@
 			cn_comment
 			(comment_id,post_id,user_id,comment_status,comment_body,comment_create_time,comment_last_modify_time)
 		VALUES
-			(#{id},#{postID},#{user.id},#{status},#{body},#{createTime},#{modifyTime})
+			(#{id},#{postID},#{user.id},#{status},#{body},UNIX_TIMESTAMP(),UNIX_TIMESTAMP() )
 	</insert>
 	
 	<!-- 

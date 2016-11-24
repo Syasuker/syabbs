@@ -33,14 +33,14 @@ public class ControllerExceptionAspect {
         String uri = request.getRequestURI();
         String queryString = request.getQueryString();
         
-        
+        System.out.println("=========AOP method================");
+        System.out.println(queryString);
         
 		try {
 			System.out.println("开始调用控制器");
 			Object val = joinPoint.proceed();
 			return val;
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			if ("showPost".equals(AOPmethod)) {
 				//绑定一场信息到error.jsp

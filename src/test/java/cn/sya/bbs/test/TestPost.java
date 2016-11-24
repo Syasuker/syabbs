@@ -2,6 +2,7 @@ package cn.sya.bbs.test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -60,10 +61,15 @@ public class TestPost {
 		System.out.println(post);
 	}
 	
+	//测试分页函数
 	@Test
 	public void ListPost(){
 		PostDao postDao = applicationContext.getBean("postDao", PostDao.class);
-		List<Map<String, Object>> posts = postDao.listPostByPlateID("1");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("plate_id", "1");
+		map.put("start", 2);
+		map.put("length", 1);
+		List<Map<String, Object>> posts = postDao.listPostByPlateID(map);
 		for (Map<String, Object> post : posts) {
 			System.out.println(post);
 		}
@@ -73,6 +79,16 @@ public class TestPost {
 	/**
 	 * 测试Service
 	 */
+	@Test
+	public void listPostServiceTest(){
+		PostService postService = applicationContext.getBean("postService", PostService.class);
+		System.out.println(postService);
+		
+		List<Map<String, Object>> posts = postService.listPost("1", "2", "1");
+		for (Map<String, Object> map : posts) {
+			System.out.println(map);
+		}
+	}
 	@Test
 	public void testloadPost(){
 		PostService postService = applicationContext.getBean("postService", PostService.class);

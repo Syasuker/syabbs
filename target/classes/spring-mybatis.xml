@@ -18,7 +18,7 @@
 
 	<!-- 数据库配置文件读取 -->
     <util:properties id="mySqlconfig" location="classpath:mysql_config.properties"></util:properties>
-    <!-- 创建DataSource -->
+    <!-- 创建DataSource链接数据库 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="#{mySqlconfig.driverClassName}"></property>
@@ -34,9 +34,9 @@
 		<!-- resource:/mapper/UserMapper.xml -->
 		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
 	</bean>
-    <!-- Map扫码器 -->
+    <!-- Map扫描器 -->
     <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<!-- 扫描cn.tedu.note.dao中的mapper接口 -->
+		<!-- 扫描cn.sya.bbs.dao中的mapper接口 -->
 		<property name="basePackage" value="cn.sya.bbs.dao"></property>
 	</bean>
     

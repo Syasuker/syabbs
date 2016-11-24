@@ -66,7 +66,7 @@ public class TestComment {
 	@Test
 	public void listCommnetByPostID(){
 		CommentDao commentDao = applicationContext.getBean("commentDao",CommentDao.class);
-		List<Map<String, Object>> comments = commentDao.listCommnetByPostID("f2a3b66a-52c4-4f61-9aca-17f70a5576da");
+		List<Map<String, Object>> comments = commentDao.listCommnetByPostID("6ba0155c-8329-465a-8c31-880d0bf1da26");
 		for (Map<String, Object> map : comments) {
 			System.out.println(map);
 		}

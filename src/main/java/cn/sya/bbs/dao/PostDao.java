@@ -13,6 +13,6 @@ import cn.sya.bbs.entity.Post;
 public interface PostDao {
 	void savePost(Post post);
 	Post findPostById(String post_id);
-	List<Map<String, Object>> listPostByPlateID(String plateID);
+	List<Map<String, Object>> listPostByPlateID(Map<String, Object> WithPlateID);
 	
 }

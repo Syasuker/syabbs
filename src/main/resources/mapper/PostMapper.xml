@@ -30,7 +30,7 @@
 			cn_post
 			(post_id,plate_id,user_id,post_status,post_title,post_body,post_create_time,post_last_modify_time)
 		VALUES
-			(#{post_id},#{plate_id},#{user.id},#{status},#{title},#{body},#{createTime},#{lastModifyTime})
+			(#{post_id},#{plate_id},#{user.id},#{status},#{title},#{body},UNIX_TIMESTAMP(),UNIX_TIMESTAMP() )
 	</insert>
 	
 	<!-- 
@@ -87,7 +87,7 @@
 	| modTime       
 	| author 
 	-->
-	<select id="listPostByPlateID" parameterType="String" resultType="java.util.Map">
+	<select id="listPostByPlateID" parameterType="map" resultType="java.util.Map">
 	    SELECT 
 	    	p.post_id AS id,
 			p.plate_id AS plate,
@@ -103,8 +103,11 @@
 	        p.plate_id=#{plate_id} AND p.post_status="1"
 	    ORDER BY 
 	        p.post_last_modify_time DESC
+	    <if test="start!=null">
+	    	limit #{start},#{length}
+	    </if>
 	</select>
-	
+	<!-- 使用分页参数必须是数字 -->
 <!-- 
 	<select id="findUserById" parameterType="string"
 		resultType="cn.tedu.note.entity.User">

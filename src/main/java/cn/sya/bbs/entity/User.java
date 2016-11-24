@@ -3,7 +3,9 @@ package cn.sya.bbs.entity;
 import java.io.Serializable;
 
 public class User implements Serializable{
-    private String id;
+	private static final long serialVersionUID = -4672165531878383481L;
+	
+	private String id;
     private String name;
     private String password;
     private String mobile;
