@@ -6,11 +6,15 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+
+import org.apache.jasper.tagplugins.jstl.core.Out;
 
 public class ImgCode {
 	//字符集
@@ -130,7 +134,7 @@ public class ImgCode {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
+		OutputStream os = null;
 		try {
 			Map<String, Object> codeMap = new ImgCode().code();
 
@@ -139,12 +143,20 @@ public class ImgCode {
 			BufferedImage img = (BufferedImage)codeMap.get("image");
 			//创建一个Byte输出流
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
-
+			
+			os = new FileOutputStream("d:/1.jpg");
 			ImageIO.write(img, "png", out);
+			//写出
+			out.writeTo(os);
 			byte[] buf = out.toByteArray();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			try {
+				os.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
